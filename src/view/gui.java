@@ -1,10 +1,12 @@
 package view;
 
 import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class gui {
     private JPanel mainPanel;
-    private JTabbedPane tabbedPane1;
+    private JTabbedPane tabPanel;
     private JButton btnReg;
     private JTextField txtForename;
     private JTextField txtUserType;
@@ -20,10 +22,19 @@ public class gui {
     private JTextField txtUsername;
     private JButton btnSignIn;
 
+    public gui() {
+        btnReg.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                
+            }
+        });
+    }
+
     public static void main(String[] args){
         JFrame frame = new JFrame("Patient Management System");
         frame.setContentPane(new gui().mainPanel);
-        frame.setSize(800, 800);
+        frame.setSize(1700, 1000);
         frame.setDefaultCloseOperation(frame.EXIT_ON_CLOSE);
         frame.setVisible(true);
     }
