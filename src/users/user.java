@@ -11,13 +11,26 @@ public class user implements Serializable{
     protected String city;
     protected String county;
     protected String postcode;
-    protected int tel;
+    protected String tel;
     protected String email;
     protected String userID;
+    //protected IState state;
 
     public user(String type, String password, String forename, String surname, String gender, String address, String city, String county, String postcode, String tel, String email, String username) {
+        this.userType = type;
+        this.password = password;
+        this.firstName = forename;
+        this.surname = surname;
+        this.gender = gender;
+        this.address = address;
+        this.city = city;
+        this.county = county;
+        this.postcode = postcode;
+        this.tel = tel;
+        this.email = email;
+        this.userID = username;
     }
-    //protected IState state;
+
 
     public String getUserType() {
         return userType;
@@ -99,11 +112,11 @@ public class user implements Serializable{
         this.postcode = postcode;
     }
 
-    public int getTel() {
+    public String getTel() {
         return tel;
     }
 
-    public void setTel(int tel) {
+    public void setTel(String tel) {
         this.tel = tel;
     }
 
