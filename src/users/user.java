@@ -3,16 +3,20 @@ import java.io.Serializable;
 
 public class user implements Serializable{
     protected String userType;
-    protected String userID;
     protected String password;
     protected String firstName;
     protected String surname;
+    protected String gender;
     protected String address;
     protected String city;
     protected String county;
     protected String postcode;
     protected int tel;
     protected String email;
+    protected String userID;
+
+    public user(String type, String password, String forename, String surname, String gender, String address, String city, String county, String postcode, String tel, String email, String username) {
+    }
     //protected IState state;
 
     public String getUserType() {
@@ -53,6 +57,14 @@ public class user implements Serializable{
 
     public void setSurname(String surname) {
         this.surname = surname;
+    }
+
+    public String getGender() {
+        return gender;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
     }
 
     public String getAddress() {
