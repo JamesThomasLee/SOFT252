@@ -1,7 +1,7 @@
 package users;
 import java.io.Serializable;
 
-public class user implements Serializable{
+public class patient implements Serializable{
     protected String userType;
     protected String password;
     protected String firstName;
@@ -16,7 +16,7 @@ public class user implements Serializable{
     protected String userID;
     //protected IState state;
 
-    public user(String type, String password, String forename, String surname, String gender, String address, String city, String county, String postcode, String tel, String email, String username) {
+    public patient(String type, String password, String forename, String surname, String gender, String address, String city, String county, String postcode, String tel, String email, String username) {
         this.userType = type;
         this.password = password;
         this.firstName = forename;
