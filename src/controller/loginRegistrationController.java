@@ -11,9 +11,10 @@ public class loginRegistrationController {
     public static void registerUser(String userType, String password, String firstName, String surname,
                                     String address, String city, String county, String postcode, String gender){
 
-        /*
-        setUpData.addStartUpData();
 
+        //setUpData.addStartUpData();
+
+        /*
         //read data
         ArrayList<patient> patientList = new ArrayList();
         patientList = (ArrayList<patient>) Serialiser.readPatientData(patientList);
@@ -29,7 +30,18 @@ public class loginRegistrationController {
     public static void logIn(String userID, String Password){
         char type = userID.charAt(0);
         if(type == 'P'){
+            ArrayList<patient> patientList = new ArrayList();
+            patientList = (ArrayList<patient>) Serialiser.readPatientData(patientList);
 
+
+
+            for (patient patient:patientList){
+                if(userID.equals(patient.getUserID())) {
+                    if (Password.equals(patient.getPassword())) {
+                        //Successful login
+                    }
+                }
+            }
         }else if(type == 'D'){
 
         }

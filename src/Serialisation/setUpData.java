@@ -13,11 +13,11 @@ public class setUpData implements Serializable{
         ArrayList<patient> patients = new ArrayList<>();
 
         //create patients to insert into system
-        patient p = new patient("P", "001", "Password1", "James", "Lee", "99 Elford Crescent", "Plymouth", "Devon", "PL7 4BU", "Male");
+        patient p = new patient("P001", "Password1", "James", "Lee", "99 Elford Crescent", "Plymouth", "Devon", "PL7 4BU", "Male");
         patients.add(p);
-        p = new patient("P", "002", "Password2", "Brooke", "Lee", "99 Elford Crescent", "Plymouth", "Devon", "PL7 4BU", "Female");
+        p = new patient("P002", "Password2", "Brooke", "Lee", "99 Elford Crescent", "Plymouth", "Devon", "PL7 4BU", "Female");
         patients.add(p);
-        p = new patient("P", "003", "Password3", "Milly", "Lee", "Sherford", "Plymouth", "Devon", "Sherf", "Female");
+        p = new patient("P003", "Password3", "Milly", "Lee", "Sherford", "Plymouth", "Devon", "Sherf", "Female");
         patients.add(p);
 
         JFrame frame = new JFrame();

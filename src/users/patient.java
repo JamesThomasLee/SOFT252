@@ -4,8 +4,7 @@ import java.io.Serializable;
 public class patient extends user implements Serializable{
     protected String gender;
 
-    public patient(String userType, String userID, String password, String firstName, String surname, String address, String city, String county, String postcode, String gender) {
-        this.userType = userType;
+    public patient(String userID, String password, String firstName, String surname, String address, String city, String county, String postcode, String gender) {
         this.userID = userID;
         this.password = password;
         this.firstName = firstName;

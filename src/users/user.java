@@ -2,7 +2,6 @@ package users;
 import java.io.Serializable;
 
 public abstract class user implements Serializable{
-    protected String userType;
     protected String userID;
     protected String password;
     protected String firstName;
@@ -11,14 +10,6 @@ public abstract class user implements Serializable{
     protected String city;
     protected String county;
     protected String postcode;
-
-    public String getUserType() {
-        return userType;
-    }
-
-    public void setUserType(String userType) {
-        this.userType = userType;
-    }
 
     public String getUserID() {
         return userID;
