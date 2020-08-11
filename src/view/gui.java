@@ -22,15 +22,16 @@ public class gui {
     private JTextField txtEmail;
     private JTextField txtPassword;
     private JTextField txtConfPassword;
-    private JTextField txtUsername;
+    private JTextField txtUserIDLogin;
     private JButton btnSignIn;
-
+    private JTextField txtPassLogin;
 
 
     public gui() {
         btnReg.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+
                 //if(txtPassword.getText() == txtConfPassword.getText()){
                     String type = txtUserType.getText();
                     String forename = txtForename.getText();
@@ -40,12 +41,18 @@ public class gui {
                     String city = txtCity.getText();
                     String county = txtCounty.getText();
                     String postcode = txtPostcode.getText();
-                    String tel = txtTel.getText();
-                    String email = txtEmail.getText();
                     String password = txtPassword.getText();
-                    loginRegistrationController.registerUser(type, forename, surname, gender, address, city, county, postcode,
-                                                                tel, email, password);
+                    loginRegistrationController.registerUser(type, password, forename, surname, address, city, county, postcode, gender);
                 //}
+            }
+        });
+
+        btnSignIn.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String userID = txtUserIDLogin.getText();
+                String password = txtPassLogin.getText();
+                loginRegistrationController.logIn(userID, password);
             }
         });
     }

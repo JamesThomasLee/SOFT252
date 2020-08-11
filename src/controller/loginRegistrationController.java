@@ -1,33 +1,42 @@
 package controller;
 
+import Serialisation.Serialiser;
 import users.patient;
+import Serialisation.setUpData;
 
+import javax.swing.*;
 import java.util.ArrayList;
 
 public class loginRegistrationController {
-    public static void registerUser(String type, String forename, String surname, String gender, String address, String city,
-                                        String county, String postcode, String tel, String email, String password){
+    public static void registerUser(String userType, String password, String firstName, String surname,
+                                    String address, String city, String county, String postcode, String gender){
 
-        String usernum = "001";
-        String username = type + usernum;
+        /*
+        setUpData.addStartUpData();
 
-        //create user
-        //user registeredUser = new user(type, password, forename, surname, gender, address, city, county, postcode, tel, email, username);
+        //read data
+        ArrayList<patient> patientList = new ArrayList();
+        patientList = (ArrayList<patient>) Serialiser.readPatientData(patientList);
+        */
 
-        //create array list
-        //ArrayList<user> user = new ArrayList();
-        //Serialiser.writeObject(user);
+        //generate user ID
 
-        //deserialize array list
-        ArrayList<patient> patient = new ArrayList();
+        //register user
 
-        //add new user to array list
+        //display userID
+    }
 
+    public static void logIn(String userID, String Password){
+        char type = userID.charAt(0);
+        if(type == 'P'){
 
+        }else if(type == 'D'){
 
+        }
+        else if(type == 'A'){
 
-        //JFrame frame = new JFrame();
-        //JOptionPane.showMessageDialog(frame, "User Registered\n" +
-                                                       // "User ID: " + username + "\n");
+        }else if(type == 'S'){
+
+        }
     }
 }

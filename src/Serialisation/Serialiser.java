@@ -20,15 +20,15 @@ public class Serialiser {
         return name;
     }
 
-    public static Serializable readObject(ArrayList<patient> patient){
-        Serializable loadedObject = null;
+
+    public static Serializable readPatientData(ArrayList<patient> patient) {
         try {
-            FileInputStream fileIn = new FileInputStream(name);
+            FileInputStream fileIn = new FileInputStream("src/Serialisation/fileOut.ser");
             ObjectInputStream in = new ObjectInputStream(fileIn);
-            loadedObject = (Serializable) in.readObject();
+            patient = (ArrayList) in.readObject();
             in.close();
             fileIn.close();
-            System.out.println("Data loaded from: "+ name);
+            System.out.println("Data loaded from: " + "src/Serialisation/fileOut.ser");
         } catch (IOException i) {
             System.out.println("File not found.");
             i.printStackTrace();
@@ -36,7 +36,7 @@ public class Serialiser {
             System.out.println("Class not found");
             c.printStackTrace();
         }
-        return loadedObject;
+        return patient;
     }
 
     public static boolean writeObject(Serializable object){
