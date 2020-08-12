@@ -30,6 +30,8 @@ public class gui {
     private JPanel registerPanel;
     private JPanel logOutPanel;
     private JPanel appointmentsPanel;
+    private JPanel doctorsPanel;
+    private JPanel medicalhistoryPanel;
 
 
     public gui() {
@@ -99,12 +101,36 @@ public class gui {
         this.registerPanel = registerPanel;
     }
 
-    public JPanel getLoggedInPanel() {
+    public JPanel getAppointmentsPanel() {
+        return appointmentsPanel;
+    }
+
+    public void setAppointmentsPanel(JPanel appointmentsPanel) {
+        this.appointmentsPanel = appointmentsPanel;
+    }
+
+    public JPanel getDoctorsPanel() {
+        return doctorsPanel;
+    }
+
+    public void setDoctorsPanel(JPanel doctorsPanel) {
+        this.doctorsPanel = doctorsPanel;
+    }
+
+    public JPanel getMedicalhistoryPanel() {
+        return medicalhistoryPanel;
+    }
+
+    public void setMedicalhistoryPanel(JPanel medicalhistoryPanel) {
+        this.medicalhistoryPanel = medicalhistoryPanel;
+    }
+
+    public JPanel getlogOutPanel() {
         return logOutPanel;
     }
 
-    public void setLoggedInPanel(JPanel loggedInPanel) {
-        this.logOutPanel = loggedInPanel;
+    public void setlogOutPanel(JPanel logOutPanel) {
+        this.logOutPanel = logOutPanel;
     }
 }
 

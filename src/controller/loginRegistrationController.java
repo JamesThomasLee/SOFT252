@@ -39,8 +39,14 @@ public class loginRegistrationController {
 
     public static void patientLoggedIn(gui gui){
         gui.getTabs().removeAll();
-        gui.getTabs().add(gui.getLoggedInPanel());
-        gui.getTabs().setTitleAt(0, "Log Out");
+        gui.getTabs().add(gui.getAppointmentsPanel());
+        gui.getTabs().setTitleAt(0, "Appointments");
+        gui.getTabs().add(gui.getMedicalhistoryPanel());
+        gui.getTabs().setTitleAt(1, "Medical History and Prescriptions");
+        gui.getTabs().add(gui.getDoctorsPanel());
+        gui.getTabs().setTitleAt(2, "Doctors");
+        gui.getTabs().add(gui.getlogOutPanel());
+        gui.getTabs().setTitleAt(3, "Log Out");
     }
 
     public static void logIn(String userID, String Password, gui gui){
