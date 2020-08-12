@@ -32,12 +32,15 @@ public class loginRegistrationController {
     public static void loadInitialTabs(gui gui){
         gui.getTabs().removeAll();
         gui.getTabs().add(gui.getSignInPanel());
+        gui.getTabs().setTitleAt(0, "Sign In");
         gui.getTabs().add(gui.getRegisterPanel());
+        gui.getTabs().setTitleAt(1, "Register");
     }
 
     public static void patientLoggedIn(gui gui){
         gui.getTabs().removeAll();
         gui.getTabs().add(gui.getLoggedInPanel());
+        gui.getTabs().setTitleAt(0, "Log Out");
     }
 
     public static void logIn(String userID, String Password, gui gui){
