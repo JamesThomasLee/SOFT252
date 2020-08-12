@@ -2,10 +2,11 @@ package controller;
 
 import Serialisation.Serialiser;
 import users.patient;
-import Serialisation.setUpData;
+import view.gui;
 
-import javax.swing.*;
 import java.util.ArrayList;
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 
 public class loginRegistrationController {
     public static void registerUser(String userType, String password, String firstName, String surname,
@@ -27,18 +28,28 @@ public class loginRegistrationController {
         //display userID
     }
 
-    public static void logIn(String userID, String Password){
+    //change state of tabs to only display log in and register tabs
+    public static void loadInitialTabs(gui gui){
+        gui.getTabs().removeAll();
+        gui.getTabs().add(gui.getSignInPanel());
+        gui.getTabs().add(gui.getRegisterPanel());
+    }
+
+    public static void patientLoggedIn(gui gui){
+        gui.getTabs().removeAll();
+        gui.getTabs().add(gui.getLoggedInPanel());
+    }
+
+    public static void logIn(String userID, String Password, gui gui){
         char type = userID.charAt(0);
         if(type == 'P'){
             ArrayList<patient> patientList = new ArrayList();
             patientList = (ArrayList<patient>) Serialiser.readPatientData(patientList);
 
-
-
             for (patient patient:patientList){
                 if(userID.equals(patient.getUserID())) {
                     if (Password.equals(patient.getPassword())) {
-                        //Successful login
+                        patientLoggedIn(gui);
                     }
                 }
             }

@@ -7,8 +7,9 @@ import java.awt.event.ActionListener;
 import controller.loginRegistrationController;
 
 public class gui {
+    private static view.gui gui;
     private JPanel mainPanel;
-    private JTabbedPane tabPanel;
+    private JTabbedPane tabs;
     private JButton btnReg;
     private JTextField txtForename;
     private JTextField txtUserType;
@@ -25,6 +26,9 @@ public class gui {
     private JTextField txtUserIDLogin;
     private JButton btnSignIn;
     private JTextField txtPassLogin;
+    private JPanel signInPanel;
+    private JPanel registerPanel;
+    private JPanel logOutPanel;
 
 
     public gui() {
@@ -52,19 +56,55 @@ public class gui {
             public void actionPerformed(ActionEvent e) {
                 String userID = txtUserIDLogin.getText();
                 String password = txtPassLogin.getText();
-                loginRegistrationController.logIn(userID, password);
+                loginRegistrationController.logIn(userID, password, gui);
             }
         });
     }
 
     public static void main(String[] args){
+        gui = new gui();
         JFrame frame = new JFrame("Patient Management System");
-        frame.setContentPane(new gui().mainPanel);
+        frame.setContentPane(gui.getTabs());
         frame.setSize(1700, 1000);
         frame.setDefaultCloseOperation(frame.EXIT_ON_CLOSE);
+
+        loginRegistrationController.loadInitialTabs(gui);
+
         frame.setVisible(true);
+
     }
 
+    public static view.gui getGui() {
+        return gui;
+    }
+
+    public JTabbedPane getTabs() {
+        return tabs;
+    }
+
+    public JPanel getSignInPanel() {
+        return signInPanel;
+    }
+
+    public void setSignInPanel(JPanel signInPanel) {
+        this.signInPanel = signInPanel;
+    }
+
+    public JPanel getRegisterPanel() {
+        return registerPanel;
+    }
+
+    public void setRegisterPanel(JPanel registerPanel) {
+        this.registerPanel = registerPanel;
+    }
+
+    public JPanel getLoggedInPanel() {
+        return logOutPanel;
+    }
+
+    public void setLoggedInPanel(JPanel loggedInPanel) {
+        this.logOutPanel = loggedInPanel;
+    }
 }
 
 
