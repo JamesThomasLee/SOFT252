@@ -4,6 +4,7 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import Serialisation.setUpData;
 import controller.loginRegistrationController;
 
 public class gui {
@@ -72,6 +73,7 @@ public class gui {
         frame.setDefaultCloseOperation(frame.EXIT_ON_CLOSE);
 
         loginRegistrationController.loadInitialTabs(gui);
+        //setUpData.addStartUpData();
 
         frame.setVisible(true);
 

@@ -23,12 +23,12 @@ public class Serialiser {
 
     public static Serializable readPatientData(ArrayList<patient> patient) {
         try {
-            FileInputStream fileIn = new FileInputStream("src/Serialisation/fileOut.ser");
+            FileInputStream fileIn = new FileInputStream("src/Serialisation/patientData.ser");
             ObjectInputStream in = new ObjectInputStream(fileIn);
             patient = (ArrayList) in.readObject();
             in.close();
             fileIn.close();
-            System.out.println("Data loaded from: " + "src/Serialisation/fileOut.ser");
+            System.out.println("Data loaded from: " + "src/Serialisation/patientData.ser");
         } catch (IOException i) {
             System.out.println("File not found.");
             i.printStackTrace();
@@ -39,14 +39,18 @@ public class Serialiser {
         return patient;
     }
 
-    public static boolean writeObject(Serializable object){
+    public static boolean writeObject(Serializable object, String location){
         try {
-            FileOutputStream fileOut = new FileOutputStream("src/Serialisation/fileOut.ser", true);
+            //output location
+            String outputLocation = "src/Serialisation/" + location + ".ser";
+
+            //output location
+            FileOutputStream fileOut = new FileOutputStream(outputLocation, true);
             ObjectOutputStream out = new ObjectOutputStream(fileOut);
             out.writeObject(object);
             out.close();
             fileOut.close();
-            System.out.println("Serialized data is saved in: " + "fileOut.ser");
+            System.out.println("Serialized data is saved in: " + "patientData.ser");
             return true;
         } catch (IOException i) {
             i.printStackTrace();
