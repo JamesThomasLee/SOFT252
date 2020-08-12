@@ -1,6 +1,7 @@
 package Serialisation;
 
 import users.patient;
+import users.doctor;
 
 import java.io.*;
 import java.util.ArrayList;
@@ -37,6 +38,24 @@ public class Serialiser {
             c.printStackTrace();
         }
         return patient;
+    }
+
+    public static Serializable readDoctorData(ArrayList<doctor> doctor) {
+        try {
+            FileInputStream fileIn = new FileInputStream("src/Serialisation/doctorData.ser");
+            ObjectInputStream in = new ObjectInputStream(fileIn);
+            doctor = (ArrayList) in.readObject();
+            in.close();
+            fileIn.close();
+            System.out.println("Data loaded from: " + "src/Serialisation/doctorData.ser");
+        } catch (IOException i) {
+            System.out.println("File not found.");
+            i.printStackTrace();
+        } catch (ClassNotFoundException c) {
+            System.out.println("Class not found");
+            c.printStackTrace();
+        }
+        return doctor;
     }
 
     public static boolean writeObject(Serializable object, String location){

@@ -2,6 +2,7 @@ package controller;
 
 import Serialisation.Serialiser;
 import users.patient;
+import users.doctor;
 import view.gui;
 
 import java.util.ArrayList;
@@ -49,6 +50,12 @@ public class loginRegistrationController {
         gui.getTabs().setTitleAt(3, "Log Out");
     }
 
+    public static void doctorLoggedIn(gui gui){
+        gui.getTabs().removeAll();
+        gui.getTabs().add(gui.getlogOutPanel());
+        gui.getTabs().setTitleAt(0, "Log Out");
+    }
+
     public static void logIn(String userID, String Password, gui gui){
         char type = userID.charAt(0);
         if(type == 'P'){
@@ -63,7 +70,16 @@ public class loginRegistrationController {
                 }
             }
         }else if(type == 'D'){
+            ArrayList<doctor> doctorList = new ArrayList();
+            doctorList = (ArrayList<doctor>) Serialiser.readDoctorData(doctorList);
 
+            for (doctor doctor:doctorList){
+                if(userID.equals(doctor.getUserID())) {
+                    if (Password.equals(doctor.getPassword())) {
+                        doctorLoggedIn(gui);
+                    }
+                }
+            }
         }
         else if(type == 'A'){
 
