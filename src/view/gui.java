@@ -29,6 +29,7 @@ public class gui {
     private JPanel signInPanel;
     private JPanel registerPanel;
     private JPanel logOutPanel;
+    private JPanel appointmentsPanel;
 
 
     public gui() {
