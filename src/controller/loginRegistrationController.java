@@ -58,6 +58,7 @@ public class loginRegistrationController {
 
     public static void logIn(String userID, String Password, gui gui){
         char type = userID.charAt(0);
+        boolean login = false;
         if(type == 'P'){
             ArrayList<patient> patientList = new ArrayList();
             patientList = (ArrayList<patient>) Serialiser.readPatientData(patientList);
@@ -66,8 +67,13 @@ public class loginRegistrationController {
                 if(userID.equals(patient.getUserID())) {
                     if (Password.equals(patient.getPassword())) {
                         patientLoggedIn(gui);
+                        login = true;
                     }
                 }
+            }
+            if(login == false){
+                JFrame frame = new JFrame();
+                JOptionPane.showMessageDialog(frame, "Incorrect login credentials.");
             }
         }else if(type == 'D'){
             ArrayList<doctor> doctorList = new ArrayList();
@@ -77,8 +83,13 @@ public class loginRegistrationController {
                 if(userID.equals(doctor.getUserID())) {
                     if (Password.equals(doctor.getPassword())) {
                         doctorLoggedIn(gui);
+                        login = true;
                     }
                 }
+            }
+            if(login == false){
+                JFrame frame = new JFrame();
+                JOptionPane.showMessageDialog(frame, "Incorrect login credentials.");
             }
         }
         else if(type == 'A'){
