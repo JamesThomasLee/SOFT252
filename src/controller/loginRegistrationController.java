@@ -3,14 +3,16 @@ package controller;
 import Serialisation.Serialiser;
 import users.patient;
 import users.doctor;
+import users.secretary;
 import view.gui;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 public class loginRegistrationController {
-    public static void registerUser(String userType, String password, String firstName, String surname,
+    public static void registerUser(String userType, char[] password, String firstName, String surname,
                                     String address, String city, String county, String postcode, String gender){
 
 
@@ -56,7 +58,13 @@ public class loginRegistrationController {
         gui.getTabs().setTitleAt(0, "Log Out");
     }
 
-    public static void logIn(String userID, String Password, gui gui){
+    public static void secretaryLoggedIn(gui gui){
+        gui.getTabs().removeAll();
+        gui.getTabs().add(gui.getlogOutPanel());
+        gui.getTabs().setTitleAt(0, "Log Out");
+    }
+
+    public static void logIn(String userID, char[] Password, gui gui){
         char type = userID.charAt(0);
         String login = "false";
         if(type == 'P'){
@@ -65,7 +73,7 @@ public class loginRegistrationController {
 
             for (patient patient:patientList){
                 if(userID.equals(patient.getUserID())) {
-                    if (Password.equals(patient.getPassword())) {
+                    if (Arrays.equals(Password, patient.getPassword())) {
                         String approved = patient.getApproved();
                         if(approved.equals("yes")){
                             patientLoggedIn(gui);
@@ -88,7 +96,7 @@ public class loginRegistrationController {
 
             for (doctor doctor:doctorList){
                 if(userID.equals(doctor.getUserID())) {
-                    if (Password.equals(doctor.getPassword())) {
+                    if (Arrays.equals(Password, doctor.getPassword())) {
                         doctorLoggedIn(gui);
                         login = "true";
                     }
@@ -102,6 +110,21 @@ public class loginRegistrationController {
         else if(type == 'A'){
 
         }else if(type == 'S'){
+            ArrayList<secretary> secretaryList = new ArrayList();
+            secretaryList = (ArrayList<secretary>) Serialiser.readSecretaryData(secretaryList);
+
+            for (secretary secretary:secretaryList){
+                if(userID.equals(secretary.getUserID())) {
+                    if (Arrays.equals(Password, secretary.getPassword())) {
+                            secretaryLoggedIn(gui);
+                            login = "true";
+                    }
+                }
+            }
+            if(login.equals("false")){
+                JFrame frame = new JFrame();
+                JOptionPane.showMessageDialog(frame, "Incorrect login credentials.");
+            }
 
         }
     }

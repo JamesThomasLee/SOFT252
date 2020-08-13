@@ -5,7 +5,7 @@ public class patient extends user implements Serializable{
     protected String gender;
     protected String approved;
 
-    public patient(String userID, String password, String firstName, String surname, String address, String city, String county, String postcode, String gender, String approved) {
+    public patient(String userID, char[] password, String firstName, String surname, String address, String city, String county, String postcode, String gender, String approved) {
         this.userID = userID;
         this.password = password;
         this.firstName = firstName;

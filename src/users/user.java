@@ -3,7 +3,7 @@ import java.io.Serializable;
 
 public abstract class user implements Serializable{
     protected String userID;
-    protected String password;
+    protected char[] password;
     protected String firstName;
     protected String surname;
     protected String address;
@@ -19,11 +19,11 @@ public abstract class user implements Serializable{
         this.userID = userID;
     }
 
-    public String getPassword() {
+    public char[] getPassword() {
         return password;
     }
 
-    public void setPassword(String password) {
+    public void setPassword(char[] password) {
         this.password = password;
     }
 

@@ -24,7 +24,7 @@ public class gui {
     private JTextField txtConfPassword;
     private JTextField txtUserIDLogin;
     private JButton btnSignIn;
-    private JTextField txtPassLogin;
+    private JPasswordField txtPassLogin;
     private JPanel signInPanel;
     private JPanel registerPanel;
     private JPanel logOutPanel;
@@ -37,8 +37,6 @@ public class gui {
         btnReg.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
-                //if(txtPassword.getText() == txtConfPassword.getText()){
                     String type = txtUserType.getText();
                     String forename = txtForename.getText();
                     String surname = txtSurname.getText();
@@ -47,7 +45,7 @@ public class gui {
                     String city = txtCity.getText();
                     String county = txtCounty.getText();
                     String postcode = txtPostcode.getText();
-                    String password = txtPassword.getText();
+                    char[] password = txtPassLogin.getPassword();
                     loginRegistrationController.registerUser(type, password, forename, surname, address, city, county, postcode, gender);
                 //}
             }
@@ -57,7 +55,7 @@ public class gui {
             @Override
             public void actionPerformed(ActionEvent e) {
                 String userID = txtUserIDLogin.getText();
-                String password = txtPassLogin.getText();
+                char[] password = txtPassLogin.getPassword();
                 loginRegistrationController.logIn(userID, password, gui);
             }
         });
