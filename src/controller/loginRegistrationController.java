@@ -58,7 +58,7 @@ public class loginRegistrationController {
 
     public static void logIn(String userID, String Password, gui gui){
         char type = userID.charAt(0);
-        boolean login = false;
+        String login = "false";
         if(type == 'P'){
             ArrayList<patient> patientList = new ArrayList();
             patientList = (ArrayList<patient>) Serialiser.readPatientData(patientList);
@@ -66,12 +66,19 @@ public class loginRegistrationController {
             for (patient patient:patientList){
                 if(userID.equals(patient.getUserID())) {
                     if (Password.equals(patient.getPassword())) {
-                        patientLoggedIn(gui);
-                        login = true;
+                        String approved = patient.getApproved();
+                        if(approved.equals("yes")){
+                            patientLoggedIn(gui);
+                            login = "true";
+                        }else{
+                            login = "not approved";
+                            JFrame frame = new JFrame();
+                            JOptionPane.showMessageDialog(frame, "Account not approved. Please contact an administrator.");
+                        }
                     }
                 }
             }
-            if(login == false){
+            if(login.equals("false")){
                 JFrame frame = new JFrame();
                 JOptionPane.showMessageDialog(frame, "Incorrect login credentials.");
             }
@@ -83,11 +90,11 @@ public class loginRegistrationController {
                 if(userID.equals(doctor.getUserID())) {
                     if (Password.equals(doctor.getPassword())) {
                         doctorLoggedIn(gui);
-                        login = true;
+                        login = "true";
                     }
                 }
             }
-            if(login == false){
+            if(login == "false"){
                 JFrame frame = new JFrame();
                 JOptionPane.showMessageDialog(frame, "Incorrect login credentials.");
             }

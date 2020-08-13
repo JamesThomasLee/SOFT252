@@ -16,11 +16,11 @@ public class setUpData implements Serializable{
         ArrayList<patient> patients = new ArrayList<>();
 
         //create patients to insert into system
-        patient p = new patient("P001", "Password1", "James", "Lee", "99 Elford Crescent", "Plymouth", "Devon", "PL7 4BU", "Male");
+        patient p = new patient("P001", "Password1", "James", "Lee", "99 Elford Crescent", "Plymouth", "Devon", "PL7 4BU", "Male", "yes");
         patients.add(p);
-        p = new patient("P002", "Password2", "Brooke", "Lee", "99 Elford Crescent", "Plymouth", "Devon", "PL7 4BU", "Female");
+        p = new patient("P002", "Password2", "Brooke", "Lee", "99 Elford Crescent", "Plymouth", "Devon", "PL7 4BU", "Female", "yes");
         patients.add(p);
-        p = new patient("P003", "Password3", "Milly", "Lee", "Sherford", "Plymouth", "Devon", "Sherf", "Female");
+        p = new patient("P003", "Password3", "Milly", "Lee", "Sherford", "Plymouth", "Devon", "Sherf", "Female", "no");
         patients.add(p);
 
         Serialiser.writeObject(patients, "patientData");
@@ -28,7 +28,7 @@ public class setUpData implements Serializable{
         JFrame frame = new JFrame();
         JOptionPane.showMessageDialog(frame, "Patient Data Created");
 
-
+        /*
         //Doctor Data
         ArrayList<doctor> doctors = new ArrayList<>();
 
@@ -45,6 +45,8 @@ public class setUpData implements Serializable{
         Serialiser.writeObject(doctors, "doctorData");
 
         JOptionPane.showMessageDialog(frame, "Doctor Data Created");
+
+         */
     }
 }
 

@@ -20,8 +20,6 @@ public class gui {
     private JTextField txtCity;
     private JTextField txtCounty;
     private JTextField txtPostcode;
-    private JTextField txtTel;
-    private JTextField txtEmail;
     private JTextField txtPassword;
     private JTextField txtConfPassword;
     private JTextField txtUserIDLogin;
