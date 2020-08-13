@@ -3,6 +3,7 @@ package Serialisation;
 import users.patient;
 import users.doctor;
 import users.secretary;
+import users.administrator;
 
 import java.io.*;
 import java.util.ArrayList;
@@ -59,11 +60,11 @@ public class Serialiser {
         return doctor;
     }
 
-    public static Serializable readSecretaryData(ArrayList<secretary> doctor) {
+    public static Serializable readSecretaryData(ArrayList<secretary> secretary) {
         try {
             FileInputStream fileIn = new FileInputStream("src/Serialisation/secretaryData.ser");
             ObjectInputStream in = new ObjectInputStream(fileIn);
-            doctor = (ArrayList) in.readObject();
+            secretary = (ArrayList) in.readObject();
             in.close();
             fileIn.close();
             System.out.println("Data loaded from: " + "src/Serialisation/secretaryData.ser");
@@ -74,7 +75,25 @@ public class Serialiser {
             System.out.println("Class not found");
             c.printStackTrace();
         }
-        return doctor;
+        return secretary;
+    }
+
+    public static Serializable readAdministratorData(ArrayList<administrator> administrator) {
+        try {
+            FileInputStream fileIn = new FileInputStream("src/Serialisation/administratorData.ser");
+            ObjectInputStream in = new ObjectInputStream(fileIn);
+            administrator = (ArrayList) in.readObject();
+            in.close();
+            fileIn.close();
+            System.out.println("Data loaded from: " + "src/Serialisation/administratorData.ser");
+        } catch (IOException i) {
+            System.out.println("File not found.");
+            i.printStackTrace();
+        } catch (ClassNotFoundException c) {
+            System.out.println("Class not found");
+            c.printStackTrace();
+        }
+        return administrator;
     }
 
     public static boolean writeObject(Serializable object, String location){

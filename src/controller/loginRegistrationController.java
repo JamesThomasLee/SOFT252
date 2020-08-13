@@ -4,6 +4,7 @@ import Serialisation.Serialiser;
 import users.patient;
 import users.doctor;
 import users.secretary;
+import users.administrator;
 import view.gui;
 
 import java.util.ArrayList;
@@ -64,6 +65,12 @@ public class loginRegistrationController {
         gui.getTabs().setTitleAt(0, "Log Out");
     }
 
+    public static void administratorLoggedIn(gui gui){
+        gui.getTabs().removeAll();
+        gui.getTabs().add(gui.getlogOutPanel());
+        gui.getTabs().setTitleAt(0, "Log Out");
+    }
+
     public static void logIn(String userID, char[] Password, gui gui){
         char type = userID.charAt(0);
         String login = "false";
@@ -108,7 +115,21 @@ public class loginRegistrationController {
             }
         }
         else if(type == 'A'){
+            ArrayList<administrator> administratorList = new ArrayList();
+            administratorList = (ArrayList<administrator>) Serialiser.readAdministratorData(administratorList);
 
+            for (administrator administrator:administratorList){
+                if(userID.equals(administrator.getUserID())) {
+                    if (Arrays.equals(Password, administrator.getPassword())) {
+                        administratorLoggedIn(gui);
+                        login = "true";
+                    }
+                }
+            }
+            if(login.equals("false")){
+                JFrame frame = new JFrame();
+                JOptionPane.showMessageDialog(frame, "Incorrect login credentials.");
+            }
         }else if(type == 'S'){
             ArrayList<secretary> secretaryList = new ArrayList();
             secretaryList = (ArrayList<secretary>) Serialiser.readSecretaryData(secretaryList);
