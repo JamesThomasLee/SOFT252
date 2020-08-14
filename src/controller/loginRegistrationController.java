@@ -7,29 +7,58 @@ import users.secretary;
 import users.administrator;
 import view.gui;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.PrintWriter;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 public class loginRegistrationController {
+
+    public static String createPatientID(ArrayList<patient> patients){
+        patient lastPatient = patients.get(patients.size()-1);
+        String lastID = lastPatient.getUserID();
+        char firstDigit = lastID.charAt(1);
+        char secondDigit = lastID.charAt(2);
+        char thirdDigit = '3';
+        int newThirdDigit = Character.getNumericValue(thirdDigit) + '1';
+        thirdDigit = (char)newThirdDigit;
+        String newID =  "P" + firstDigit + secondDigit + thirdDigit;
+        return newID;
+    }
+
     public static void registerUser(String userType, char[] password, String firstName, String surname,
                                     String address, String city, String county, String postcode, String gender){
+        if(userType.equals("Patient")){
+            //get array list
+            ArrayList<patient> patientList = new ArrayList();
+            patientList = (ArrayList<patient>) Serialiser.readPatientData(patientList);
 
+            //generate new user ID
+            String userID = createPatientID(patientList);
 
-        //setUpData.addStartUpData();
+            //create new user
+            patient p = new patient(userID, password, firstName, surname, address, city, county, postcode, gender, "no");
+            //add to array list
+            patientList.add(p);
+            //reserialize
+            Serialiser.writeObject(patientList, "patientData");
 
-        /*
-        //read data
-        ArrayList<patient> patientList = new ArrayList();
-        patientList = (ArrayList<patient>) Serialiser.readPatientData(patientList);
-        */
+            //user output
+            JFrame frame = new JFrame();
+            JOptionPane.showMessageDialog(frame, "New User Account Created \n" + "User ID: " + userID + "\n" + "Please use your credentials to sign in.");
+        }else if(userType.equals("Administrator")){
+            //get array list
 
-        //generate user ID
+            //create new user
 
-        //register user
+            //add to array list
 
-        //display userID
+            //reserialize
+        }
     }
 
     //change state of tabs to only display log in and register tabs
@@ -61,6 +90,7 @@ public class loginRegistrationController {
 
     public static void secretaryLoggedIn(gui gui){
         gui.getTabs().removeAll();
+        gui.getTabs().add(gui.getAccountManagementPanel());
         gui.getTabs().add(gui.getlogOutPanel());
         gui.getTabs().setTitleAt(0, "Log Out");
     }

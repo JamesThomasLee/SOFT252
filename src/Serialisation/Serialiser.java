@@ -102,7 +102,7 @@ public class Serialiser {
             String outputLocation = "src/Serialisation/" + location + ".ser";
 
             //output location
-            FileOutputStream fileOut = new FileOutputStream(outputLocation, true);
+            FileOutputStream fileOut = new FileOutputStream(outputLocation);
             ObjectOutputStream out = new ObjectOutputStream(fileOut);
             out.writeObject(object);
             out.close();

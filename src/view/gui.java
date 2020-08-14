@@ -20,8 +20,6 @@ public class gui {
     private JTextField txtCity;
     private JTextField txtCounty;
     private JTextField txtPostcode;
-    private JTextField txtPassword;
-    private JTextField txtConfPassword;
     private JTextField txtUserIDLogin;
     private JButton btnSignIn;
     private JPasswordField txtPassLogin;
@@ -31,22 +29,42 @@ public class gui {
     private JPanel appointmentsPanel;
     private JPanel doctorsPanel;
     private JPanel medicalhistoryPanel;
+    private JComboBox dropUserType;
+    private JPasswordField regPassword;
+    private JPasswordField regConfPassword;
 
+
+
+    private JPanel accountManagementPanel;
+    private JTextField textField1;
+    private JTextField textField2;
+    private JTextField textField3;
+    private JTextField textField4;
+    private JTextField textField5;
+    private JTextField textField6;
+    private JTextField textField7;
+    private JButton updatePatientButton;
+    private JList secretaryAccManagement;
+    private JTextField textField8;
 
     public gui() {
+        //add combo box items
+        dropUserType.addItem("Patient");
+        dropUserType.addItem("Administrator");
+
         btnReg.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                    String type = txtUserType.getText();
-                    String forename = txtForename.getText();
-                    String surname = txtSurname.getText();
-                    String gender = txtGender.getText();
-                    String address = txtAddress.getText();
-                    String city = txtCity.getText();
-                    String county = txtCounty.getText();
-                    String postcode = txtPostcode.getText();
-                    char[] password = txtPassLogin.getPassword();
-                    loginRegistrationController.registerUser(type, password, forename, surname, address, city, county, postcode, gender);
+                String type = (String) dropUserType.getSelectedItem();
+                String forename = txtForename.getText();
+                String surname = txtSurname.getText();
+                String gender = txtGender.getText();
+                String address = txtAddress.getText();
+                String city = txtCity.getText();
+                String county = txtCounty.getText();
+                String postcode = txtPostcode.getText();
+                char[] password = regPassword.getPassword();
+                loginRegistrationController.registerUser(type, password, forename, surname, address, city, county, postcode, gender);
                 //}
             }
         });
@@ -61,7 +79,7 @@ public class gui {
         });
     }
 
-    public static void main(String[] args){
+    public static void main(String[] args) {
         gui = new gui();
         JFrame frame = new JFrame("Patient Management System");
         frame.setContentPane(gui.getTabs());
@@ -69,6 +87,7 @@ public class gui {
         frame.setDefaultCloseOperation(frame.EXIT_ON_CLOSE);
 
         loginRegistrationController.loadInitialTabs(gui);
+
         //setUpData.addStartUpData();
 
         frame.setVisible(true);
@@ -129,6 +148,22 @@ public class gui {
 
     public void setlogOutPanel(JPanel logOutPanel) {
         this.logOutPanel = logOutPanel;
+    }
+
+    public JComboBox getDropUserType() {
+        return dropUserType;
+    }
+
+    public void setDropUserType(JComboBox dropUserType) {
+        this.dropUserType = dropUserType;
+    }
+
+    public JPanel getAccountManagementPanel() {
+        return accountManagementPanel;
+    }
+
+    public void setAccountManagementPanel(JPanel accountManagementPanel) {
+        this.accountManagementPanel = accountManagementPanel;
     }
 }
 

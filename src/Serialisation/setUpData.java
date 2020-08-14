@@ -14,7 +14,7 @@ public class setUpData implements Serializable{
 
     public static void addStartUpData(){
 
-        /*
+
         //patient data
         ArrayList<patient> patients = new ArrayList<>();
 
