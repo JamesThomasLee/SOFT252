@@ -44,8 +44,8 @@ public class gui {
     private JTextField textField6;
     private JTextField textField7;
     private JButton updatePatientButton;
-    private JList secretaryAccManagement;
     private JTextField textField8;
+    private JList SecAccManagement;
 
     public gui() {
         //add combo box items
@@ -164,6 +164,14 @@ public class gui {
 
     public void setAccountManagementPanel(JPanel accountManagementPanel) {
         this.accountManagementPanel = accountManagementPanel;
+    }
+
+    public JList getSecAccManagement() {
+        return SecAccManagement;
+    }
+
+    public void setSecAccManagement(JList secAccManagement) {
+        SecAccManagement = secAccManagement;
     }
 }
 

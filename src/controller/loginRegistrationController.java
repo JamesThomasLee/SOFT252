@@ -13,8 +13,8 @@ import java.io.PrintWriter;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import javax.swing.JFrame;
-import javax.swing.JOptionPane;
+import javax.swing.*;
+import javax.swing.table.DefaultTableModel;
 
 public class loginRegistrationController {
 
@@ -92,7 +92,11 @@ public class loginRegistrationController {
         gui.getTabs().removeAll();
         gui.getTabs().add(gui.getAccountManagementPanel());
         gui.getTabs().add(gui.getlogOutPanel());
-        gui.getTabs().setTitleAt(0, "Log Out");
+        gui.getTabs().setTitleAt(0, "Patient Account Management");
+        gui.getTabs().setTitleAt(1, "Log Out");
+
+        secretaryController.displayPatients(gui.getSecAccManagement());
+
     }
 
     public static void administratorLoggedIn(gui gui){
