@@ -53,6 +53,9 @@ public class gui {
     private JTextField ptntAuthorised;
     private JList SecAccManagement;
     private JButton btnLogout;
+    private JTextField txtAuthoriseUserID;
+    private JButton btnAuthorise;
+    private JPanel authorisePanel;
 
     public gui() {
         //add combo box items
@@ -114,6 +117,14 @@ public class gui {
                 logoutController.logoutUser(gui);
             }
         });
+        btnAuthorise.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String userID = txtAuthoriseUserID.getText();
+                secretaryController.authorisePatient(userID);
+                txtAuthoriseUserID.setText("");
+            }
+        });
     }
 
     public static void main(String[] args) {
@@ -126,7 +137,7 @@ public class gui {
         loginRegistrationController.loadInitialTabs(gui);
 
         //function used to implement start up example data
-        //setUpData.addStartUpData();
+        setUpData.addStartUpData();
 
         frame.setVisible(true);
 
@@ -274,6 +285,14 @@ public class gui {
 
     public void setPtntAuthorised(JTextField ptntAuthorised) {
         this.ptntAuthorised = ptntAuthorised;
+    }
+
+    public JTextField getTxtAuthoriseUserID() {
+        return txtAuthoriseUserID;
+    }
+
+    public void setTxtAuthoriseUserID(JTextField txtAuthoriseUserID) {
+        this.txtAuthoriseUserID = txtAuthoriseUserID;
     }
 }
 

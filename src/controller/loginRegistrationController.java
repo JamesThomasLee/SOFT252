@@ -51,7 +51,7 @@ public class loginRegistrationController {
             String userID = createPatientID(patientList);
 
             //create new user
-            patient p = new patient(userID, password, firstName, surname, address, city, county, postcode, gender, "no");
+            patient p = new patient(userID, password, firstName, surname, address, city, county, postcode, gender, "No");
             //add to array list
             patientList.add(p);
             //reserialize
@@ -118,7 +118,7 @@ public class loginRegistrationController {
                 if(userID.equals(patient.getUserID())) {
                     if (Arrays.equals(Password, patient.getPassword())) {
                         String approved = patient.getApproved();
-                        if(approved.equals("yes")){
+                        if(approved.equals("Yes")){
                             patientLoggedIn(gui);
                             login = "true";
                         }else{

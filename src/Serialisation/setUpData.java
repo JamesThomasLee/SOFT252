@@ -22,11 +22,11 @@ public class setUpData implements Serializable{
         char[] password = new char[]{'P', 'a', 't', 'i', 'e', 'n', 't'};
 
         //create patients to insert into system
-        patient p = new patient("P001", password, "James", "Lee", "99 Elford Crescent", "Plymouth", "Devon", "PL7 4BU", "Male", "yes");
+        patient p = new patient("P001", password, "James", "Lee", "99 Elford Crescent", "Plymouth", "Devon", "PL7 4BU", "Male", "Yes");
         patients.add(p);
-        p = new patient("P002", password, "Brooke", "Lee", "99 Elford Crescent", "Plymouth", "Devon", "PL7 4BU", "Female", "yes");
+        p = new patient("P002", password, "Brooke", "Lee", "99 Elford Crescent", "Plymouth", "Devon", "PL7 4BU", "Female", "Yes");
         patients.add(p);
-        p = new patient("P003", password, "Milly", "Lee", "Sherford", "Plymouth", "Devon", "Sherf", "Female", "no");
+        p = new patient("P003", password, "Milly", "Lee", "Sherford", "Plymouth", "Devon", "Sherf", "Female", "No");
         patients.add(p);
 
         Serialiser.writeObject(patients, "patientData");
@@ -69,7 +69,7 @@ public class setUpData implements Serializable{
 
         JFrame frame = new JFrame();
         JOptionPane.showMessageDialog(frame, "Secretary Data Created");
-         */
+
 
         //Administrator Data
         ArrayList<administrator> administrators = new ArrayList<>();
@@ -85,7 +85,7 @@ public class setUpData implements Serializable{
 
         //JFrame frame = new JFrame();
         JOptionPane.showMessageDialog(frame, "Administrator Data Created");
-
+        */
     }
 }
 
