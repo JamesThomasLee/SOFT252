@@ -10,6 +10,7 @@ import java.util.Arrays;
 import Serialisation.setUpData;
 import controller.loginRegistrationController;
 import controller.secretaryController;
+import controller.logoutController;
 import users.patient;
 
 public class gui {
@@ -51,6 +52,7 @@ public class gui {
     private JButton updatePatientButton;
     private JTextField ptntAuthorised;
     private JList SecAccManagement;
+    private JButton btnLogout;
 
     public gui() {
         //add combo box items
@@ -96,12 +98,20 @@ public class gui {
                 String userID = txtUserIDLogin.getText();
                 char[] password = txtPassLogin.getPassword();
                 loginRegistrationController.logIn(userID, password, gui);
+                txtUserIDLogin.setText("");
+                txtPassLogin.setText("");
             }
         });
         SecAccManagement.addListSelectionListener(new ListSelectionListener() {
             @Override
             public void valueChanged(ListSelectionEvent e) {
 
+            }
+        });
+        btnLogout.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                logoutController.logoutUser(gui);
             }
         });
     }
@@ -116,7 +126,7 @@ public class gui {
         loginRegistrationController.loadInitialTabs(gui);
 
         //function used to implement start up example data
-        setUpData.addStartUpData();
+        //setUpData.addStartUpData();
 
         frame.setVisible(true);
 
