@@ -56,6 +56,8 @@ public class gui {
     private JTextField txtAuthoriseUserID;
     private JButton btnAuthorise;
     private JPanel authorisePanel;
+    private JTextField txtDeletePatient;
+    private JButton btnDeletePatient;
 
     public gui() {
         //add combo box items
@@ -123,6 +125,14 @@ public class gui {
                 String userID = txtAuthoriseUserID.getText();
                 secretaryController.authorisePatient(userID);
                 txtAuthoriseUserID.setText("");
+            }
+        });
+        btnDeletePatient.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String userID = txtDeletePatient.getText();
+                secretaryController.deletePatient(userID);
+                txtDeletePatient.setText("");
             }
         });
     }
