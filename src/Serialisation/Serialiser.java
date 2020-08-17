@@ -23,7 +23,7 @@ public class Serialiser {
         return name;
     }
 
-
+    //Function used to read patient data from the appropriate file.
     public static Serializable readPatientData(ArrayList<patient> patient) {
         try {
             FileInputStream fileIn = new FileInputStream("src/Serialisation/patientData.ser");
@@ -42,6 +42,7 @@ public class Serialiser {
         return patient;
     }
 
+    //Function used to read doctor data from the appropriate file.
     public static Serializable readDoctorData(ArrayList<doctor> doctor) {
         try {
             FileInputStream fileIn = new FileInputStream("src/Serialisation/doctorData.ser");
@@ -60,6 +61,7 @@ public class Serialiser {
         return doctor;
     }
 
+    //Function used to read secretary data from the appropriate file.
     public static Serializable readSecretaryData(ArrayList<secretary> secretary) {
         try {
             FileInputStream fileIn = new FileInputStream("src/Serialisation/secretaryData.ser");
@@ -78,6 +80,7 @@ public class Serialiser {
         return secretary;
     }
 
+    //Function used to read administrator data from the appropriate file.
     public static Serializable readAdministratorData(ArrayList<administrator> administrator) {
         try {
             FileInputStream fileIn = new FileInputStream("src/Serialisation/administratorData.ser");
@@ -96,6 +99,7 @@ public class Serialiser {
         return administrator;
     }
 
+    //Writes array lists to a flat file.
     public static boolean writeObject(Serializable object, String location){
         try {
             //output location

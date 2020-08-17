@@ -420,7 +420,7 @@
                       <grid row="9" column="0" row-span="1" col-span="2" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
                     </constraints>
                   </vspacer>
-                  <component id="47d9f" class="javax.swing.JTextField" binding="textField1" default-binding="true">
+                  <component id="47d9f" class="javax.swing.JTextField" binding="ptntFirstName">
                     <constraints>
                       <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
                         <preferred-size width="150" height="-1"/>
@@ -476,7 +476,7 @@
                       <text value="Postcode:"/>
                     </properties>
                   </component>
-                  <component id="4f685" class="javax.swing.JTextField" binding="textField2" default-binding="true">
+                  <component id="4f685" class="javax.swing.JTextField" binding="ptntSurname">
                     <constraints>
                       <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
                         <preferred-size width="150" height="-1"/>
@@ -484,7 +484,7 @@
                     </constraints>
                     <properties/>
                   </component>
-                  <component id="d4a82" class="javax.swing.JTextField" binding="textField3" default-binding="true">
+                  <component id="d4a82" class="javax.swing.JTextField" binding="ptntGender">
                     <constraints>
                       <grid row="2" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
                         <preferred-size width="150" height="-1"/>
@@ -492,7 +492,7 @@
                     </constraints>
                     <properties/>
                   </component>
-                  <component id="a440b" class="javax.swing.JTextField" binding="textField4" default-binding="true">
+                  <component id="a440b" class="javax.swing.JTextField" binding="ptntAddress">
                     <constraints>
                       <grid row="3" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
                         <preferred-size width="150" height="-1"/>
@@ -500,7 +500,7 @@
                     </constraints>
                     <properties/>
                   </component>
-                  <component id="15090" class="javax.swing.JTextField" binding="textField5" default-binding="true">
+                  <component id="15090" class="javax.swing.JTextField" binding="ptntCity">
                     <constraints>
                       <grid row="4" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
                         <preferred-size width="150" height="-1"/>
@@ -508,7 +508,7 @@
                     </constraints>
                     <properties/>
                   </component>
-                  <component id="8f260" class="javax.swing.JTextField" binding="textField6" default-binding="true">
+                  <component id="8f260" class="javax.swing.JTextField" binding="ptntCounty">
                     <constraints>
                       <grid row="5" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
                         <preferred-size width="150" height="-1"/>
@@ -516,7 +516,7 @@
                     </constraints>
                     <properties/>
                   </component>
-                  <component id="eec16" class="javax.swing.JTextField" binding="textField7" default-binding="true">
+                  <component id="eec16" class="javax.swing.JTextField" binding="ptntPostcode">
                     <constraints>
                       <grid row="6" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
                         <preferred-size width="150" height="-1"/>
@@ -540,7 +540,7 @@
                       <text value="Authorised:"/>
                     </properties>
                   </component>
-                  <component id="bac18" class="javax.swing.JTextField" binding="textField8" default-binding="true">
+                  <component id="bac18" class="javax.swing.JTextField" binding="ptntAuthorised">
                     <constraints>
                       <grid row="7" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
                         <preferred-size width="150" height="-1"/>

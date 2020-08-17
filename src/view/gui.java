@@ -1,11 +1,16 @@
 package view;
 
 import javax.swing.*;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Arrays;
 
 import Serialisation.setUpData;
 import controller.loginRegistrationController;
+import controller.secretaryController;
+import users.patient;
 
 public class gui {
     private static view.gui gui;
@@ -36,15 +41,15 @@ public class gui {
 
 
     private JPanel accountManagementPanel;
-    private JTextField textField1;
-    private JTextField textField2;
-    private JTextField textField3;
-    private JTextField textField4;
-    private JTextField textField5;
-    private JTextField textField6;
-    private JTextField textField7;
+    private JTextField ptntFirstName;
+    private JTextField ptntSurname;
+    private JTextField ptntGender;
+    private JTextField ptntAddress;
+    private JTextField ptntCity;
+    private JTextField ptntCounty;
+    private JTextField ptntPostcode;
     private JButton updatePatientButton;
-    private JTextField textField8;
+    private JTextField ptntAuthorised;
     private JList SecAccManagement;
 
     public gui() {
@@ -55,17 +60,33 @@ public class gui {
         btnReg.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                String type = (String) dropUserType.getSelectedItem();
-                String forename = txtForename.getText();
-                String surname = txtSurname.getText();
-                String gender = txtGender.getText();
-                String address = txtAddress.getText();
-                String city = txtCity.getText();
-                String county = txtCounty.getText();
-                String postcode = txtPostcode.getText();
-                char[] password = regPassword.getPassword();
-                loginRegistrationController.registerUser(type, password, forename, surname, address, city, county, postcode, gender);
-                //}
+                //check passwords match
+                if(Arrays.equals(regPassword.getPassword(), regConfPassword.getPassword())){
+                    String type = (String) dropUserType.getSelectedItem();
+                    String forename = txtForename.getText();
+                    String surname = txtSurname.getText();
+                    String gender = txtGender.getText();
+                    String address = txtAddress.getText();
+                    String city = txtCity.getText();
+                    String county = txtCounty.getText();
+                    String postcode = txtPostcode.getText();
+                    char[] password = regPassword.getPassword();
+                    String complete = (String) loginRegistrationController.registerUser(gui, type, password, forename, surname, address, city, county, postcode, gender);
+                    if(complete.equals("complete")){
+                        txtForename.setText("");
+                        txtSurname.setText("");
+                        txtGender.setText("");
+                        txtAddress.setText("");
+                        txtCity.setText("");
+                        txtCounty.setText("");
+                        txtPostcode.setText("");
+                        regPassword.setText("");
+                        regConfPassword.setText("");
+                    }
+                }else{
+                    JFrame frame = new JFrame();
+                    JOptionPane.showMessageDialog(frame, "Please ensure passwords match.");
+                }
             }
         });
 
@@ -75,6 +96,12 @@ public class gui {
                 String userID = txtUserIDLogin.getText();
                 char[] password = txtPassLogin.getPassword();
                 loginRegistrationController.logIn(userID, password, gui);
+            }
+        });
+        SecAccManagement.addListSelectionListener(new ListSelectionListener() {
+            @Override
+            public void valueChanged(ListSelectionEvent e) {
+
             }
         });
     }
@@ -172,6 +199,70 @@ public class gui {
 
     public void setSecAccManagement(JList secAccManagement) {
         SecAccManagement = secAccManagement;
+    }
+
+    public JTextField getPtntFirstName() {
+        return ptntFirstName;
+    }
+
+    public void setPtntFirstName(JTextField ptntFirstName) {
+        this.ptntFirstName = ptntFirstName;
+    }
+
+    public JTextField getPtntSurname() {
+        return ptntSurname;
+    }
+
+    public void setPtntSurname(JTextField ptntSurname) {
+        this.ptntSurname = ptntSurname;
+    }
+
+    public JTextField getPtntGender() {
+        return ptntGender;
+    }
+
+    public void setPtntGender(JTextField ptntGender) {
+        this.ptntGender = ptntGender;
+    }
+
+    public JTextField getPtntAddress() {
+        return ptntAddress;
+    }
+
+    public void setPtntAddress(JTextField ptntAddress) {
+        this.ptntAddress = ptntAddress;
+    }
+
+    public JTextField getPtntCity() {
+        return ptntCity;
+    }
+
+    public void setPtntCity(JTextField ptntCity) {
+        this.ptntCity = ptntCity;
+    }
+
+    public JTextField getPtntCounty() {
+        return ptntCounty;
+    }
+
+    public void setPtntCounty(JTextField ptntCounty) {
+        this.ptntCounty = ptntCounty;
+    }
+
+    public JTextField getPtntPostcode() {
+        return ptntPostcode;
+    }
+
+    public void setPtntPostcode(JTextField ptntPostcode) {
+        this.ptntPostcode = ptntPostcode;
+    }
+
+    public JTextField getPtntAuthorised() {
+        return ptntAuthorised;
+    }
+
+    public void setPtntAuthorised(JTextField ptntAuthorised) {
+        this.ptntAuthorised = ptntAuthorised;
     }
 }
 

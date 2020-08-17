@@ -1,7 +1,6 @@
 package controller;
 
 import Serialisation.Serialiser;
-import controller.userList;
 import users.patient;
 import view.gui;
 
@@ -13,6 +12,10 @@ import java.util.ArrayList;
 
 public class secretaryController {
 
+    /*
+    This function is used to display all patients to a secretary.
+    A JList is used to display all patients.
+     */
     public static void displayPatients(JList users){
         //create list and model
         DefaultListModel patients = new DefaultListModel();
@@ -32,4 +35,9 @@ public class secretaryController {
         users.setModel(patients);
 
     }
+/*
+    public static void displayPatientDetails(gui gui, object object){
+
+    }
+ */
 }
