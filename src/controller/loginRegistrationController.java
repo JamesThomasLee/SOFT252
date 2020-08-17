@@ -15,15 +15,27 @@ import javax.swing.*;
 public class loginRegistrationController {
 
     //Generating a unique ID for a registering user.
-    public static String createPatientID(ArrayList<patient> patients){
-        patient lastPatient = patients.get(patients.size()-1);
+    public static String createPatientID(ArrayList<patient> patients) {
+        patient lastPatient = patients.get(patients.size() - 1);
         String lastID = lastPatient.getUserID();
         char firstDigit = lastID.charAt(1);
         char secondDigit = lastID.charAt(2);
         char thirdDigit = lastID.charAt(3);
         int newThirdDigit = Character.getNumericValue(thirdDigit) + '1';
+        thirdDigit = (char) newThirdDigit;
+        String newID = "P" + firstDigit + secondDigit + thirdDigit;
+        return newID;
+    }
+
+    public static String createAdminID(ArrayList<administrator> administrators){
+        administrator lastAdministrator = administrators.get(administrators.size()-1);
+        String lastID = lastAdministrator.getUserID();
+        char firstDigit = lastID.charAt(1);
+        char secondDigit = lastID.charAt(2);
+        char thirdDigit = lastID.charAt(3);
+        int newThirdDigit = Character.getNumericValue(thirdDigit) + '1';
         thirdDigit = (char)newThirdDigit;
-        String newID =  "P" + firstDigit + secondDigit + thirdDigit;
+        String newID =  "A" + firstDigit + secondDigit + thirdDigit;
         return newID;
     }
 
@@ -47,7 +59,8 @@ public class loginRegistrationController {
 
             //user output
             JFrame frame = new JFrame();
-            JOptionPane.showMessageDialog(frame, "New User Account Created \n" + "User ID: " + userID + "\n" + "Please use your credentials to sign in.");
+            JOptionPane.showMessageDialog(frame, "New User Account Created \n" + "User ID: " + userID + "\n" +
+                                            "Please use your credentials to sign in. \n" + "Account approval may be necessary.");
 
             //
             String complete = "complete";
@@ -55,14 +68,29 @@ public class loginRegistrationController {
 
         }else if(userType.equals("Administrator")){
             //get array list
+            ArrayList<administrator> adminstratorList = new ArrayList();
+            adminstratorList = (ArrayList<administrator>) Serialiser.readAdministratorData(adminstratorList);
+
+            //generate new user ID
+            String userID = createAdminID(adminstratorList);
 
             //create new user
-
+            administrator a = new administrator(userID, password, firstName, surname, address, city, county, postcode);
             //add to array list
-
+            adminstratorList.add(a);
             //reserialize
+            Serialiser.writeObject(adminstratorList, "administratorData");
+
+            //user output
+            JFrame frame = new JFrame();
+            JOptionPane.showMessageDialog(frame, "New User Account Created \n" + "User ID: " + userID + "\n" + "Please use your credentials to sign in.");
+
+            //
+            String complete = "complete";
+            return complete;
         }
-        return userType;
+        String complete = "incomplete";
+        return complete;
     }
 
     //change state of tabs to only display log in and register tabs
@@ -77,6 +105,7 @@ public class loginRegistrationController {
     /*
     Function that retrieves log in credentials and does a user check. If credentials are correct then the appropriate
     user login function is called.
+    Uses IF statements to determine what type of user is trying to log in to the system.
      */
     public static void logIn(String userID, char[] Password, gui gui){
         char type = userID.charAt(0);
@@ -154,6 +183,9 @@ public class loginRegistrationController {
                 JOptionPane.showMessageDialog(frame, "Incorrect login credentials.");
             }
 
+        }else{
+            JFrame frame = new JFrame();
+            JOptionPane.showMessageDialog(frame, "Incorrect login credentials.");
         }
     }
 

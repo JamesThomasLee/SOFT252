@@ -69,12 +69,13 @@ public class setUpData implements Serializable{
 
         JFrame frame = new JFrame();
         JOptionPane.showMessageDialog(frame, "Secretary Data Created");
+         */
 
         //Administrator Data
         ArrayList<administrator> administrators = new ArrayList<>();
 
         //password
-        char[] password = new char[]{'A', 'd', 'm', 'i', 'n', 'i', 's', 't', 'r', 'a', 't', 'o', 'r'};
+        password = new char[]{'A', 'd', 'm', 'i', 'n', 'i', 's', 't', 'r', 'a', 't', 'o', 'r'};
 
         //create administrators to insert into system
         administrator a = new administrator("A001", password, "Denny", "Keller", "27 High Street", "Strathalbyn", "SA", "5255");
@@ -82,9 +83,9 @@ public class setUpData implements Serializable{
 
         Serialiser.writeObject(administrators, "administratorData");
 
-        JFrame frame = new JFrame();
+        //JFrame frame = new JFrame();
         JOptionPane.showMessageDialog(frame, "Administrator Data Created");
-        */
+
     }
 }
 

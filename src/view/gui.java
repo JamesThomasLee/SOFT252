@@ -115,7 +115,8 @@ public class gui {
 
         loginRegistrationController.loadInitialTabs(gui);
 
-        //setUpData.addStartUpData();
+        //function used to implement start up example data
+        setUpData.addStartUpData();
 
         frame.setVisible(true);
 
