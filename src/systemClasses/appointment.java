@@ -3,7 +3,8 @@ package systemClasses;
 public class appointment {
     protected String patientID;
     protected String doctorID;
-    protected String datetime;
+    protected String[] date;
+    protected String[] time;
     protected String authorised;
 
     public String getPatientID() {
@@ -22,12 +23,20 @@ public class appointment {
         this.doctorID = doctorID;
     }
 
-    public String getDatetime() {
-        return datetime;
+    public String[] getDate() {
+        return date;
     }
 
-    public void setDatetime(String datetime) {
-        this.datetime = datetime;
+    public void setDate(String[] date) {
+        this.date = date;
+    }
+
+    public String[] getTime() {
+        return time;
+    }
+
+    public void setTime(String[] time) {
+        this.time = time;
     }
 
     public String getAuthorised() {
