@@ -5,6 +5,7 @@ import java.io.Serializable;
 public class medicine implements Serializable {
     protected String medicineName;
     protected int stockLevel;
+    protected String maximumDosage;
 
     public String getMedicineName() {
         return medicineName;
@@ -29,8 +30,4 @@ public class medicine implements Serializable {
     public void setMaximumDosage(String maximumDosage) {
         this.maximumDosage = maximumDosage;
     }
-
-    protected String maximumDosage;
-
-
 }
