@@ -1,11 +1,24 @@
 package systemClasses;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 public class appointment {
     protected String patientID;
     protected String doctorID;
-    protected String[] date;
-    protected String[] time;
+    protected char[] date;
+    protected char[] time;
     protected String authorised;
+    protected String notes;
+
+    public appointment(String patientID, String doctorID, char[] date, char[] time, String authorised, String notes) {
+        this.patientID = patientID;
+        this.doctorID = doctorID;
+        this.date = date;
+        this.time = time;
+        this.authorised = authorised;
+        this.notes = notes;
+    }
 
     public String getPatientID() {
         return patientID;
@@ -23,19 +36,19 @@ public class appointment {
         this.doctorID = doctorID;
     }
 
-    public String[] getDate() {
+    public char[] getDate() {
         return date;
     }
 
-    public void setDate(String[] date) {
+    public void setDate(char[] date) {
         this.date = date;
     }
 
-    public String[] getTime() {
+    public char[] getTime() {
         return time;
     }
 
-    public void setTime(String[] time) {
+    public void setTime(char[] time) {
         this.time = time;
     }
 
@@ -45,5 +58,13 @@ public class appointment {
 
     public void setAuthorised(String authorised) {
         this.authorised = authorised;
+    }
+
+    public String getNotes() {
+        return notes;
+    }
+
+    public void setNotes(String notes) {
+        this.notes = notes;
     }
 }

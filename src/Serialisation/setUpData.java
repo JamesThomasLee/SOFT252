@@ -4,10 +4,14 @@ import users.patient;
 import users.doctor;
 import users.secretary;
 import users.administrator;
+import systemClasses.appointment;
 
 import javax.swing.*;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.ArrayList;
 import java.io.Serializable;
+import java.util.Date;
 
 
 public class setUpData implements Serializable{
@@ -86,6 +90,61 @@ public class setUpData implements Serializable{
         //JFrame frame = new JFrame();
         JOptionPane.showMessageDialog(frame, "Administrator Data Created");
         */
+
+        //Appointment data
+        ArrayList<appointment> appointments = new ArrayList<>();
+
+        //create appointment
+        char[] date = new char[]{'0', '1', '/', '0', '8', '/', '2', '0', '2', '0'};
+        char[] time = new char[]{'0', '9', ':', '0', '0'};
+        appointment a = new appointment("P001", "D001", date, time, "Yes", "Patient reported regular headaches." +
+                "Is going to report lifestyle choices over period of 14 days to identify triggers.");
+        appointments.add(a);
+        date = new char[]{'0', '7', '/', '0', '8', '/', '2', '0', '2', '0'};
+        time = new char[]{'0', '9', ':', '0', '0'};
+        a = new appointment("P001", "D001", date, time, "Yes", "Patient identified migraines occuring" +
+                "after strenuous exercise. Referred for a scan. Will report back for results.");
+        appointments.add(a);
+        date = new char[]{'1', '4', '/', '0', '8', '/', '2', '0', '2', '0'};
+        time = new char[]{'0', '9', ':', '0', '0'};
+        a = new appointment("P001", "D001", date, time, "Yes", "Scan reveals minor split in spine" +
+                "potentially cause migraines after exercise. Referred for physio therapy.");
+        appointments.add(a);
+        //create appointment
+        date = new char[]{'0', '1', '/', '0', '8', '/', '2', '0', '2', '0'};
+        time = new char[]{'0', '9', ':', '3', '0'};
+        a = new appointment("P002", "D001", date, time, "Yes", "Patient reported cold like symptoms for a" +
+                "period of over 2 weeks.");
+        appointments.add(a);
+        date = new char[]{'0', '7', '/', '0', '8', '/', '2', '0', '2', '0'};
+        time = new char[]{'0', '9', ':', '3', '0'};
+        a = new appointment("P002", "D001", date, time, "Yes", "Patient reported that medication had not" +
+                "help relieve symptoms");
+        appointments.add(a);
+        date = new char[]{'1', '4', '/', '0', '8', '/', '2', '0', '2', '0'};
+        time = new char[]{'1', '3', ':', '0', '0'};
+        a = new appointment("P002", "D001", date, time, "Yes", "Test results determine patient" +
+                "is carrying a virus.");
+        appointments.add(a);
+        //create appointment
+        date = new char[]{'0', '1', '/', '0', '8', '/', '2', '0', '2', '0'};
+        time = new char[]{'1', '1', ':', '3', '0'};
+        a = new appointment("P003", "D003", date, time, "Yes", "Patient states they cannot sleep" +
+                "regularly.");
+        appointments.add(a);
+        date = new char[]{'0', '7', '/', '0', '8', '/', '2', '0', '2', '0'};
+        time = new char[]{'1', '4', ':', '3', '0'};
+        a = new appointment("P003", "D003", date, time, "Yes", "Sleeping medication helped but didn't" +
+                "mitigate the problem.");
+        appointments.add(a);
+        date = new char[]{'1', '4', '/', '0', '8', '/', '2', '0', '2', '0'};
+        time = new char[]{'1', '5', ':', '0', '0'};
+        a = new appointment("P003", "D003", date, time, "Yes", "Diagnosed with tinnitus and referred" +
+                "to a specialist.");
+        appointments.add(a);
+
+        //JFrame frame = new JFrame();
+        JOptionPane.showMessageDialog(frame, "Appointment Data Created");
     }
 }
 
