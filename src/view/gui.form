@@ -767,13 +767,15 @@
                           <text value="First Name:"/>
                         </properties>
                       </component>
-                      <component id="a950b" class="javax.swing.JTextField">
+                      <component id="a950b" class="javax.swing.JTextField" binding="ptFirstName">
                         <constraints>
                           <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
                             <preferred-size width="150" height="-1"/>
                           </grid>
                         </constraints>
-                        <properties/>
+                        <properties>
+                          <editable value="false"/>
+                        </properties>
                       </component>
                       <component id="2733a" class="javax.swing.JLabel">
                         <constraints>
@@ -823,53 +825,65 @@
                           <text value="Postcode:"/>
                         </properties>
                       </component>
-                      <component id="b6b2d" class="javax.swing.JTextField">
+                      <component id="b6b2d" class="javax.swing.JTextField" binding="ptSurname">
                         <constraints>
                           <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
                             <preferred-size width="150" height="-1"/>
                           </grid>
                         </constraints>
-                        <properties/>
+                        <properties>
+                          <editable value="false"/>
+                        </properties>
                       </component>
-                      <component id="64c07" class="javax.swing.JTextField">
+                      <component id="64c07" class="javax.swing.JTextField" binding="ptGender">
                         <constraints>
                           <grid row="2" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
                             <preferred-size width="150" height="-1"/>
                           </grid>
                         </constraints>
-                        <properties/>
+                        <properties>
+                          <editable value="false"/>
+                        </properties>
                       </component>
-                      <component id="847a2" class="javax.swing.JTextField">
+                      <component id="847a2" class="javax.swing.JTextField" binding="ptAddress">
                         <constraints>
                           <grid row="3" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
                             <preferred-size width="150" height="-1"/>
                           </grid>
                         </constraints>
-                        <properties/>
+                        <properties>
+                          <editable value="false"/>
+                        </properties>
                       </component>
-                      <component id="3a3f2" class="javax.swing.JTextField">
+                      <component id="3a3f2" class="javax.swing.JTextField" binding="ptCity">
                         <constraints>
                           <grid row="4" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
                             <preferred-size width="150" height="-1"/>
                           </grid>
                         </constraints>
-                        <properties/>
+                        <properties>
+                          <editable value="false"/>
+                        </properties>
                       </component>
-                      <component id="2d498" class="javax.swing.JTextField">
+                      <component id="2d498" class="javax.swing.JTextField" binding="ptCounty">
                         <constraints>
                           <grid row="5" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
                             <preferred-size width="150" height="-1"/>
                           </grid>
                         </constraints>
-                        <properties/>
+                        <properties>
+                          <editable value="false"/>
+                        </properties>
                       </component>
-                      <component id="59dda" class="javax.swing.JTextField">
+                      <component id="59dda" class="javax.swing.JTextField" binding="ptPostcode">
                         <constraints>
                           <grid row="6" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
                             <preferred-size width="150" height="-1"/>
                           </grid>
                         </constraints>
-                        <properties/>
+                        <properties>
+                          <editable value="false"/>
+                        </properties>
                       </component>
                     </children>
                   </grid>

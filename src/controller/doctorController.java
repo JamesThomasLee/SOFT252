@@ -2,6 +2,7 @@ package controller;
 
 import Serialisation.Serialiser;
 import users.patient;
+import users.doctor;
 import systemClasses.appointment;
 import view.gui;
 
@@ -23,13 +24,14 @@ public class doctorController {
     }
 
     //displays patient appointments when a patient is selected.
-    public static void updateAppointmentList(String userID, JList appoints){
+    public static void updateAppointmentList(String userID, JList appoints, gui gui){
         //get patient ID from dropdown
         String patient = "";
         for(int i = 5; i > 1; i--){
             char ch = userID.charAt(userID.length() - i);
             patient = patient + String.valueOf(ch);
         }
+        getPatientDetails(patient, gui);
 
         //create list and model
         DefaultListModel appointmentslist = new DefaultListModel();
@@ -50,12 +52,41 @@ public class doctorController {
                     time = time + c;
                 };
 
-            appointmentslist.addElement("<html>Appointment <br/>" +
+                //get doctor info
+                ArrayList<doctor> doctors = new ArrayList();
+                doctors = (ArrayList<doctor>) Serialiser.readDoctorData(doctors);
+                String doctorName = "";
+                for (doctor doctor:doctors) {
+                    if(appointment.getDoctorID().equals(doctor.getUserID())){
+                        doctorName = "Dr " + doctor.getFirstName() + " " + doctor.getSurname();
+                    }
+                }
+
+
+                appointmentslist.addElement("<html>Appointment <br/>" +
                         "Date: " + date + "<br/>Time: " + time +
+                        "<br/>Doctor: " + doctorName +
                         "<br/>Appointment Notes: " + appointment.getNotes() + "</html>");
             }
         }
         appoints.setModel(appointmentslist);
+    }
+
+    public static void getPatientDetails(String userID, gui gui){
+        ArrayList<patient> patientList = new ArrayList();
+        patientList = (ArrayList<patient>) Serialiser.readPatientData(patientList);
+
+        for (patient patient:patientList) {
+            if (userID.equals(patient.getUserID())) {
+                gui.getPtFirstName().setText(patient.getFirstName());
+                gui.getPtSurname().setText(patient.getSurname());
+                gui.getPtGender().setText(patient.getGender());
+                gui.getPtAddress().setText(patient.getAddress());
+                gui.getPtCity().setText(patient.getCounty());
+                gui.getPtCounty().setText(patient.getCounty());
+                gui.getPtPostcode().setText(patient.getPostcode());
+            }
+        }
     }
 
 }

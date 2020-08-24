@@ -62,6 +62,13 @@ public class gui {
     private JPanel patientsPanel;
     private JList appointmentsList;
     private JComboBox patientCombo;
+    private JTextField ptFirstName;
+    private JTextField ptSurname;
+    private JTextField ptGender;
+    private JTextField ptAddress;
+    private JTextField ptCity;
+    private JTextField ptCounty;
+    private JTextField ptPostcode;
 
     public gui() {
         //add combo box items
@@ -143,7 +150,7 @@ public class gui {
             @Override
             public void actionPerformed(ActionEvent e) {
                 String userID = (String)patientCombo.getSelectedItem();
-                doctorController.updateAppointmentList(userID, appointmentsList);
+                doctorController.updateAppointmentList(userID, appointmentsList, gui);
             }
         });
     }
@@ -338,6 +345,62 @@ public class gui {
 
     public void setPatientCombo(JComboBox patientCombo) {
         this.patientCombo = patientCombo;
+    }
+
+    public JTextField getPtFirstName() {
+        return ptFirstName;
+    }
+
+    public void setPtFirstName(JTextField ptFirstName) {
+        this.ptFirstName = ptFirstName;
+    }
+
+    public JTextField getPtSurname() {
+        return ptSurname;
+    }
+
+    public void setPtSurname(JTextField ptSurname) {
+        this.ptSurname = ptSurname;
+    }
+
+    public JTextField getPtGender() {
+        return ptGender;
+    }
+
+    public void setPtGender(JTextField ptGender) {
+        this.ptGender = ptGender;
+    }
+
+    public JTextField getPtAddress() {
+        return ptAddress;
+    }
+
+    public void setPtAddress(JTextField ptAddress) {
+        this.ptAddress = ptAddress;
+    }
+
+    public JTextField getPtCity() {
+        return ptCity;
+    }
+
+    public void setPtCity(JTextField ptCity) {
+        this.ptCity = ptCity;
+    }
+
+    public JTextField getPtCounty() {
+        return ptCounty;
+    }
+
+    public void setPtCounty(JTextField ptCounty) {
+        this.ptCounty = ptCounty;
+    }
+
+    public JTextField getPtPostcode() {
+        return ptPostcode;
+    }
+
+    public void setPtPostcode(JTextField ptPostcode) {
+        this.ptPostcode = ptPostcode;
     }
 }
 
