@@ -213,6 +213,7 @@ public class loginRegistrationController {
         gui.getTabs().removeAll();
         gui.getTabs().add(gui.getPatientsPanel());
         gui.getTabs().setTitleAt(0, "Patients");
+        doctorController.dropdown(gui);
         gui.getTabs().add(gui.getlogOutPanel());
         gui.getTabs().setTitleAt(1, "Log Out");
     }

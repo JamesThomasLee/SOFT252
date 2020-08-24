@@ -143,6 +143,8 @@ public class setUpData implements Serializable{
                 "to a specialist.");
         appointments.add(a);
 
+        Serialiser.writeObject(appointments, "appointmentData");
+
         //JFrame frame = new JFrame();
         JOptionPane.showMessageDialog(frame, "Appointment Data Created");
     }
