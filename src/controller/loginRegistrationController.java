@@ -211,8 +211,10 @@ public class loginRegistrationController {
     */
     public static void doctorLoggedIn(gui gui){
         gui.getTabs().removeAll();
+        gui.getTabs().add(gui.getPatientsPanel());
+        gui.getTabs().setTitleAt(0, "Patients");
         gui.getTabs().add(gui.getlogOutPanel());
-        gui.getTabs().setTitleAt(0, "Log Out");
+        gui.getTabs().setTitleAt(1, "Log Out");
     }
 
     /*

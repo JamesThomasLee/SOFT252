@@ -58,6 +58,9 @@ public class gui {
     private JPanel authorisePanel;
     private JTextField txtDeletePatient;
     private JButton btnDeletePatient;
+    private JPanel patientsPanel;
+    private JList appointmentsList;
+    private JComboBox patientCombo;
 
     public gui() {
         //add combo box items
@@ -303,6 +306,30 @@ public class gui {
 
     public void setTxtAuthoriseUserID(JTextField txtAuthoriseUserID) {
         this.txtAuthoriseUserID = txtAuthoriseUserID;
+    }
+
+    public JPanel getPatientsPanel() {
+        return patientsPanel;
+    }
+
+    public void setPatientsPanel(JPanel patientsPanel) {
+        this.patientsPanel = patientsPanel;
+    }
+
+    public JList getAppointmentsList() {
+        return appointmentsList;
+    }
+
+    public void setAppointmentsList(JList appointmentsList) {
+        this.appointmentsList = appointmentsList;
+    }
+
+    public JComboBox getPatientCombo() {
+        return patientCombo;
+    }
+
+    public void setPatientCombo(JComboBox patientCombo) {
+        this.patientCombo = patientCombo;
     }
 }
 
