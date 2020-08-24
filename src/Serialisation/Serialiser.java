@@ -4,6 +4,7 @@ import users.patient;
 import users.doctor;
 import users.secretary;
 import users.administrator;
+import systemClasses.appointment;
 
 import java.io.*;
 import java.util.ArrayList;
@@ -97,6 +98,25 @@ public class Serialiser {
             c.printStackTrace();
         }
         return administrator;
+    }
+
+    //Function used to read appointment data from the appropriate file.
+    public static Serializable readAppointmentData(ArrayList<appointment> appointment){
+        try {
+            FileInputStream fileIn = new FileInputStream("src/Serialisation/appointmentData.ser");
+            ObjectInputStream in = new ObjectInputStream(fileIn);
+            appointment = (ArrayList) in.readObject();
+            in.close();
+            fileIn.close();
+            System.out.println("Data loaded from: " + "src/Serialisation/appointmentData.ser");
+        } catch (IOException i) {
+            System.out.println("File not found.");
+            i.printStackTrace();
+        } catch (ClassNotFoundException c) {
+            System.out.println("Class not found");
+            c.printStackTrace();
+        }
+        return appointment;
     }
 
     //Writes array lists to a flat file.

@@ -11,6 +11,7 @@ import Serialisation.setUpData;
 import controller.loginRegistrationController;
 import controller.secretaryController;
 import controller.logoutController;
+import controller.doctorController;
 import users.patient;
 
 public class gui {
@@ -136,6 +137,13 @@ public class gui {
                 String userID = txtDeletePatient.getText();
                 secretaryController.deletePatient(userID);
                 txtDeletePatient.setText("");
+            }
+        });
+        patientCombo.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String userID = (String)patientCombo.getSelectedItem();
+                doctorController.updateAppointmentList(userID, appointmentsList);
             }
         });
     }

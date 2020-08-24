@@ -1,9 +1,10 @@
 package systemClasses;
 
+import java.io.Serializable;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-public class appointment {
+public class appointment implements Serializable {
     protected String patientID;
     protected String doctorID;
     protected char[] date;

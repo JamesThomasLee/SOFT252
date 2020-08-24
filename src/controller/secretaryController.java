@@ -34,7 +34,6 @@ public class secretaryController {
 
         //assign data model to list
         users.setModel(patients);
-
     }
 
     public static void authorisePatient(String userID){
