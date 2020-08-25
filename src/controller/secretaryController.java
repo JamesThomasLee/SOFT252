@@ -36,7 +36,25 @@ public class secretaryController {
         users.setModel(patients);
     }
 
-    public static void authorisePatient(String userID){
+    public static void getPatientDetails(String userID, gui gui){
+        ArrayList<patient> patientList = new ArrayList();
+        patientList = (ArrayList<patient>) Serialiser.readPatientData(patientList);
+
+        for (patient patient:patientList) {
+            if (userID.equals(patient.getUserID())) {
+                gui.getPtntFirstName().setText(patient.getFirstName());
+                gui.getPtntSurname().setText(patient.getSurname());
+                gui.getPtntGender().setText(patient.getGender());
+                gui.getPtntAddress().setText(patient.getAddress());
+                gui.getPtntCity().setText(patient.getCounty());
+                gui.getPtntCounty().setText(patient.getCounty());
+                gui.getPtntPostcode().setText(patient.getPostcode());
+                gui.getPtntAuthorised().setText(patient.getApproved());
+            }
+        }
+    }
+
+    public static void authorisePatient(String userID, gui gui){
         JFrame frame = new JFrame();
         //get patient data
         ArrayList<patient> patientList = new ArrayList();
@@ -66,9 +84,10 @@ public class secretaryController {
             }
         }
         JOptionPane.showMessageDialog(frame, message);
+        getPatientDetails(userID, gui);
     }
 
-    public static void deletePatient(String userID){
+    public static void deletePatient(String userID, gui gui){
         JFrame frame = new JFrame();
         //get patient data
         ArrayList<patient> patientList = new ArrayList();
@@ -96,6 +115,7 @@ public class secretaryController {
             }
         }
         JOptionPane.showMessageDialog(frame, message);
+        getPatientDetails(userID, gui);
     }
 /*
     public static void displayPatientDetails(gui gui, object object){

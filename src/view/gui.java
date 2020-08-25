@@ -121,7 +121,13 @@ public class gui {
         SecAccManagement.addListSelectionListener(new ListSelectionListener() {
             @Override
             public void valueChanged(ListSelectionEvent e) {
-
+                String selectedPatient = (String)SecAccManagement.getSelectedValue();
+                String patient = "";
+                for(int i = 12; i < 16; i++){
+                    char ch = selectedPatient.charAt(i);
+                    patient = patient + String.valueOf(ch);
+                }
+                secretaryController.getPatientDetails(patient, gui);
             }
         });
         btnLogout.addActionListener(new ActionListener() {
@@ -134,7 +140,7 @@ public class gui {
             @Override
             public void actionPerformed(ActionEvent e) {
                 String userID = txtAuthoriseUserID.getText();
-                secretaryController.authorisePatient(userID);
+                secretaryController.authorisePatient(userID, gui);
                 txtAuthoriseUserID.setText("");
             }
         });
@@ -142,7 +148,7 @@ public class gui {
             @Override
             public void actionPerformed(ActionEvent e) {
                 String userID = txtDeletePatient.getText();
-                secretaryController.deletePatient(userID);
+                secretaryController.deletePatient(userID, gui);
                 txtDeletePatient.setText("");
             }
         });
