@@ -51,18 +51,40 @@ public class secretaryController {
         }
     }
 
-    public static void updatePatientDetails(String userID, gui gui){
-        String input = "";
+    public static void updatePatientDetails(String userID, gui gui, JList users){
+        JTextField input;
+        String newInput;
         ArrayList<patient> patientList = new ArrayList();
         patientList = (ArrayList<patient>) Serialiser.readPatientData(patientList);
 
         for(patient patient:patientList){
             if(userID.equals(patient.getUserID())){
                 input = gui.getPtntFirstName();
-                patient.setFirstName(input);
-
+                newInput = input.getText();
+                patient.setFirstName(newInput);
+                input = gui.getPtntSurname();
+                newInput = input.getText();
+                patient.setSurname(newInput);
+                input = gui.getPtntGender();
+                newInput = input.getText();
+                patient.setGender(newInput);
+                input = gui.getPtntAddress();
+                newInput = input.getText();
+                patient.setAddress(newInput);
+                input = gui.getPtntCity();
+                newInput = input.getText();
+                patient.setCity(newInput);
+                input = gui.getPtntCounty();
+                newInput = input.getText();
+                patient.setCounty(newInput);
+                input = gui.getPtntPostcode();
+                newInput = input.getText();
+                patient.setPostcode(newInput);
             }
         }
+        Serialiser.writeObject(patientList, "patientData");
+        displayPatients(users);
+
     }
 
     public static void authorisePatient(String userID, gui gui){

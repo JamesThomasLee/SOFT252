@@ -159,6 +159,18 @@ public class gui {
                 doctorController.updateAppointmentList(userID, appointmentsList, gui);
             }
         });
+        updatePatientButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String selectedPatient = (String)SecAccManagement.getSelectedValue();
+                String patient = "";
+                for(int i = 12; i < 16; i++){
+                    char ch = selectedPatient.charAt(i);
+                    patient = patient + String.valueOf(ch);
+                }
+                secretaryController.updatePatientDetails(patient, gui, gui.getSecAccManagement());
+            }
+        });
     }
 
     public static void main(String[] args) {
