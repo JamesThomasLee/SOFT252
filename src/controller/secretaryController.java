@@ -5,9 +5,6 @@ import users.patient;
 import view.gui;
 
 import javax.swing.*;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableColumn;
-import javax.swing.text.TableView;
 import java.util.ArrayList;
 
 public class secretaryController {
@@ -50,6 +47,20 @@ public class secretaryController {
                 gui.getPtntCounty().setText(patient.getCounty());
                 gui.getPtntPostcode().setText(patient.getPostcode());
                 gui.getPtntAuthorised().setText(patient.getApproved());
+            }
+        }
+    }
+
+    public static void updatePatientDetails(String userID, gui gui){
+        String input = "";
+        ArrayList<patient> patientList = new ArrayList();
+        patientList = (ArrayList<patient>) Serialiser.readPatientData(patientList);
+
+        for(patient patient:patientList){
+            if(userID.equals(patient.getUserID())){
+                input = gui.getPtntFirstName();
+                patient.setFirstName(input);
+
             }
         }
     }
