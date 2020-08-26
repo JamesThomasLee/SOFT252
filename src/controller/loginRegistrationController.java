@@ -272,8 +272,10 @@ public class loginRegistrationController {
      */
     public static void administratorLoggedIn(gui gui){
         gui.getTabs().removeAll();
+        gui.getTabs().add(gui.getDoctorAccManage());
+        gui.getTabs().setTitleAt(0, "Doctor Account Management");
         gui.getTabs().add(gui.getlogOutPanel());
-        gui.getTabs().setTitleAt(0, "Log Out");
+        gui.getTabs().setTitleAt(1, "Log Out");
     }
 
 }

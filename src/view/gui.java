@@ -71,6 +71,17 @@ public class gui {
     private JTextField patientAppointmentDoctor;
     private JTextField patientAppointmentNotes;
     private JTextField patientID;
+    private JPanel doctorAccManage;
+    private JList doctorAccounts;
+    private JTextField txtDocFirst;
+    private JTextField txtDocSur;
+    private JTextField txtDocGen;
+    private JTextField txtDocAdd;
+    private JTextField txtDocCity;
+    private JTextField txtDocCounty;
+    private JTextField txtDocPost;
+    private JButton btnAddDoc;
+    private JButton btnDeleteDoc;
 
     public gui() {
         //add combo box items
@@ -468,6 +479,94 @@ public class gui {
 
     public void setPatientID(JTextField patientID) {
         this.patientID = patientID;
+    }
+
+    public JPanel getDoctorAccManage() {
+        return doctorAccManage;
+    }
+
+    public void setDoctorAccManage(JPanel doctorAccManage) {
+        this.doctorAccManage = doctorAccManage;
+    }
+
+    public JList getDoctorAccounts() {
+        return doctorAccounts;
+    }
+
+    public void setDoctorAccounts(JList doctorAccounts) {
+        this.doctorAccounts = doctorAccounts;
+    }
+
+    public JTextField getTxtDocFirst() {
+        return txtDocFirst;
+    }
+
+    public void setTxtDocFirst(JTextField txtDocFirst) {
+        this.txtDocFirst = txtDocFirst;
+    }
+
+    public JTextField getTxtDocSur() {
+        return txtDocSur;
+    }
+
+    public void setTxtDocSur(JTextField txtDocSur) {
+        this.txtDocSur = txtDocSur;
+    }
+
+    public JTextField getTxtDocGen() {
+        return txtDocGen;
+    }
+
+    public void setTxtDocGen(JTextField txtDocGen) {
+        this.txtDocGen = txtDocGen;
+    }
+
+    public JTextField getTxtDocAdd() {
+        return txtDocAdd;
+    }
+
+    public void setTxtDocAdd(JTextField txtDocAdd) {
+        this.txtDocAdd = txtDocAdd;
+    }
+
+    public JTextField getTxtDocCity() {
+        return txtDocCity;
+    }
+
+    public void setTxtDocCity(JTextField txtDocCity) {
+        this.txtDocCity = txtDocCity;
+    }
+
+    public JTextField getTxtDocCounty() {
+        return txtDocCounty;
+    }
+
+    public void setTxtDocCounty(JTextField txtDocCounty) {
+        this.txtDocCounty = txtDocCounty;
+    }
+
+    public JTextField getTxtDocPost() {
+        return txtDocPost;
+    }
+
+    public void setTxtDocPost(JTextField txtDocPost) {
+        this.txtDocPost = txtDocPost;
+    }
+
+    public JButton getBtnAddDoc() {
+        return btnAddDoc;
+    }
+
+    public void setBtnAddDoc(JButton btnAddDoc) {
+        this.btnAddDoc = btnAddDoc;
+    }
+
+    public JButton getBtnDeleteDoc() {
+        return btnDeleteDoc;
+    }
+
+    public void setBtnDeleteDoc(JButton btnDeleteDoc) {
+        this.btnDeleteDoc = btnDeleteDoc;
     }
 }
 
