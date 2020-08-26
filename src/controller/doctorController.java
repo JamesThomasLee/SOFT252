@@ -10,8 +10,14 @@ import javax.swing.*;
 import java.util.ArrayList;
 import java.util.Arrays;
 
+/**
+ * This controller contains functions used by all doctor aspects of the system.
+ */
 public class doctorController {
-
+    /**
+     * adds patients to combo box ready for selected
+     * @param gui - allowing system to call combo box
+     */
     public static void dropdown(gui gui){
         //get patient details
         ArrayList<patient> patientList = new ArrayList();
@@ -23,7 +29,12 @@ public class doctorController {
         }
     }
 
-    //displays patient appointments when a patient is selected.
+    /**
+     * When a patient is selected from the dropdown box this function updates the JList displaying their appointments.
+     * @param userID - the user ID selected
+     * @param appoints - the jlist form component
+     * @param gui - the gui
+     */
     public static void updateAppointmentList(String userID, JList appoints, gui gui){
         //get patient ID from dropdown
         String patient = "";
@@ -72,6 +83,11 @@ public class doctorController {
         appoints.setModel(appointmentslist);
     }
 
+    /**
+     * When a patient is selected, their details are displayed in the text components to the left of the form.
+     * @param userID - userID of selected patient
+     * @param gui - the gui
+     */
     public static void getPatientDetails(String userID, gui gui){
         ArrayList<patient> patientList = new ArrayList();
         patientList = (ArrayList<patient>) Serialiser.readPatientData(patientList);
