@@ -5,6 +5,7 @@ import users.doctor;
 import systemClasses.appointment;
 import view.gui;
 
+import java.awt.*;
 import java.util.ArrayList;
 
 /**
@@ -63,9 +64,12 @@ public class patientController {
                 };
                 if(date.equals(dateCompare)){
                     gui.getPatientAppointmentTime().setText(time);
+                    gui.getPatientAppointmentTime().setDisabledTextColor(Color.darkGray);
                     String doctor = getDoctor(appointment.getDoctorID());
                     gui.getPatientAppointmentDoctor().setText(doctor);
+                    gui.getPatientAppointmentDoctor().setDisabledTextColor(Color.darkGray);
                     gui.getPatientAppointmentNotes().setText(appointment.getNotes());
+                    gui.getPatientAppointmentNotes().setDisabledTextColor(Color.darkGray);
                 }
             }
         }
