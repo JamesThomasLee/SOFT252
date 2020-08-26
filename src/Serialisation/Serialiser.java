@@ -9,6 +9,9 @@ import systemClasses.appointment;
 import java.io.*;
 import java.util.ArrayList;
 
+/**
+ * The serialiser class is used to write array lists to a text file for storage.
+ */
 public class Serialiser {
     private String name;
 
@@ -24,7 +27,11 @@ public class Serialiser {
         return name;
     }
 
-    //Function used to read patient data from the appropriate file.
+    /**
+     * This function reads patient data from the patient array list.
+     * @param patient - array list.
+     * @return
+     */
     public static Serializable readPatientData(ArrayList<patient> patient) {
         try {
             FileInputStream fileIn = new FileInputStream("src/Serialisation/patientData.ser");
@@ -43,7 +50,11 @@ public class Serialiser {
         return patient;
     }
 
-    //Function used to read doctor data from the appropriate file.
+    /**
+     * This function reads doctor data from the doctor array list.
+     * @param doctor - array list.
+     * @return
+     */
     public static Serializable readDoctorData(ArrayList<doctor> doctor) {
         try {
             FileInputStream fileIn = new FileInputStream("src/Serialisation/doctorData.ser");
@@ -62,7 +73,11 @@ public class Serialiser {
         return doctor;
     }
 
-    //Function used to read secretary data from the appropriate file.
+    /**
+     * This function reads secretary data from the secretary array list.
+     * @param secretary - array list.
+     * @return
+     */
     public static Serializable readSecretaryData(ArrayList<secretary> secretary) {
         try {
             FileInputStream fileIn = new FileInputStream("src/Serialisation/secretaryData.ser");
@@ -81,7 +96,11 @@ public class Serialiser {
         return secretary;
     }
 
-    //Function used to read administrator data from the appropriate file.
+    /**
+     * This function reads administrator data from the administrator array list.
+     * @param administrator
+     * @return
+     */
     public static Serializable readAdministratorData(ArrayList<administrator> administrator) {
         try {
             FileInputStream fileIn = new FileInputStream("src/Serialisation/administratorData.ser");
@@ -100,7 +119,11 @@ public class Serialiser {
         return administrator;
     }
 
-    //Function used to read appointment data from the appropriate file.
+    /**
+     * This function reads appointment data from the appointment array list.
+     * @param appointment
+     * @return
+     */
     public static Serializable readAppointmentData(ArrayList<appointment> appointment){
         try {
             FileInputStream fileIn = new FileInputStream("src/Serialisation/appointmentData.ser");
@@ -119,7 +142,12 @@ public class Serialiser {
         return appointment;
     }
 
-    //Writes array lists to a flat file.
+    /**
+     * This function serialises array lists to a flat file text format.
+     * @param object - the array list
+     * @param location - the file name to be written to.
+     * @return
+     */
     public static boolean writeObject(Serializable object, String location){
         try {
             //output location
