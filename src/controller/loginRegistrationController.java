@@ -12,9 +12,17 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import javax.swing.*;
 
+/**
+ * This controller controls all aspects of a user logging into a system and registering a new account.
+ */
 public class loginRegistrationController {
 
-    //Generating a unique ID for a registering user.
+    /**
+     * This function is used when a new patient is registering.
+     * It generates a new unique ID that will be assigned to them.
+     * @param patients - arraylist of all patients
+     * @return
+     */
     public static String createPatientID(ArrayList<patient> patients) {
         patient lastPatient = patients.get(patients.size() - 1);
         String lastID = lastPatient.getUserID();
@@ -27,6 +35,12 @@ public class loginRegistrationController {
         return newID;
     }
 
+    /**
+     * Used when an administrator is registering a new account.
+     * A unique ID is generated for the new administrator.
+     * @param administrators
+     * @return
+     */
     public static String createAdminID(ArrayList<administrator> administrators){
         administrator lastAdministrator = administrators.get(administrators.size()-1);
         String lastID = lastAdministrator.getUserID();
@@ -39,7 +53,22 @@ public class loginRegistrationController {
         return newID;
     }
 
-    // The function used to register a new user.
+    /**
+     * This function gathers user inputs and registers a new account.
+     * If statements are used to determine the user type.
+     * The new account is then serialized in the appropriate file.
+     * @param gui - gui
+     * @param userType - collected user details
+     * @param password - collected user details
+     * @param firstName - collected user details
+     * @param surname - collected user details
+     * @param address - collected user details
+     * @param city - collected user details
+     * @param county - collected user details
+     * @param postcode - collected user details
+     * @param gender - collected user details
+     * @return
+     */
     public static Serializable registerUser(gui gui, String userType, char[] password, String firstName, String surname,
                                       String address, String city, String county, String postcode, String gender){
         if(userType.equals("Patient")){
@@ -93,7 +122,10 @@ public class loginRegistrationController {
         return complete;
     }
 
-    //change state of tabs to only display log in and register tabs
+    /**
+     * Loads initial sign in and register tabs.
+     * @param gui
+     */
     public static void loadInitialTabs(gui gui){
         gui.getTabs().removeAll();
         gui.getTabs().add(gui.getSignInPanel());
@@ -102,10 +134,12 @@ public class loginRegistrationController {
         gui.getTabs().setTitleAt(1, "Register");
     }
 
-    /*
-    Function that retrieves log in credentials and does a user check. If credentials are correct then the appropriate
-    user login function is called.
-    Uses IF statements to determine what type of user is trying to log in to the system.
+    /**
+     * This function collects user log in credentials and then attempts a log in.
+     * If statements are used to determine the user type when trying to log in.
+     * @param userID - user log in credentials
+     * @param Password - user password
+     * @param gui - gui
      */
     public static void logIn(String userID, char[] Password, gui gui){
         char type = userID.charAt(0);
@@ -189,9 +223,9 @@ public class loginRegistrationController {
         }
     }
 
-    /*
-    The function called if a user provides patient login details.
-    This function will change the appropriate tabs state to display them to the user.
+    /**
+     * When a patient successfully logs in, this function is used to display the relevant tabs on the gui.
+     * @param gui - gui
      */
     public static void patientLoggedIn(gui gui){
         gui.getTabs().removeAll();
@@ -205,10 +239,10 @@ public class loginRegistrationController {
         gui.getTabs().setTitleAt(3, "Log Out");
     }
 
-    /*
-    The function called if a user provides doctor login details.
-    This function will change the appropriate tabs state to display them to the user.
-    */
+    /**
+     * When a doctor successfully logs in, this function is used to display the relevant tabs on the gui.
+     * @param gui - gui
+     */
     public static void doctorLoggedIn(gui gui){
         gui.getTabs().removeAll();
         gui.getTabs().add(gui.getPatientsPanel());
@@ -218,10 +252,10 @@ public class loginRegistrationController {
         gui.getTabs().setTitleAt(1, "Log Out");
     }
 
-    /*
-    The function called if a user provides secretary login details.
-    This function will change the appropriate tabs state to display them to the user.
-    */
+    /**
+     * When a secretary successfully logs in, this function is used to display the relevant tabs on the gui.
+     * @param gui - gui
+     */
     public static void secretaryLoggedIn(gui gui){
         gui.getTabs().removeAll();
         gui.getTabs().add(gui.getAccountManagementPanel());
@@ -233,10 +267,10 @@ public class loginRegistrationController {
 
     }
 
-    /*
-    The function called if a user provides administrator login details.
-    This function will change the appropriate tabs state to display them to the user.
-    */
+    /**
+     * When an administrator successfully logs in, this function is used to display the relevant tabs on the gui.
+     * @param gui - gui
+     */
     public static void administratorLoggedIn(gui gui){
         gui.getTabs().removeAll();
         gui.getTabs().add(gui.getlogOutPanel());
