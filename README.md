@@ -41,4 +41,16 @@ details, authorise patients, or delete patients.
 #### JUnit testing and Javadoc:
 * Appropriate class testing has been implemented using JUnit and all tests have passed.
 * Javadoc comments have been implemented on all controllers to provide function documentation.
+
+#### UML
+UML diagram created with IntelliJ's built in UML generator. Stored in GitHub Repository.
+[My UML](UML.png)
+
+#### Project Troubleshooting
+* I appreciate all data is meant to be stored in one data file however this was causing errors in my system.
+I was attempting to store all arraylists in one data object however my system would not let me serialize this.
+I overcame this by serializing each arraylist of objects into its own .ser file.
+* Building an executable - I am able to build an executable of my project but cannot include my .ser storage
+files with my .jar file. This means my system cannot read data so therefore cannot pass the login tab.
+Please overcome this by running my system in IntelliJ. In IntelliJ my system runs perfectly.
  
