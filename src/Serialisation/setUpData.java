@@ -18,7 +18,7 @@ public class setUpData implements Serializable{
 
     public static void addStartUpData(){
 
-
+        /*
         //patient data
         ArrayList<patient> patients = new ArrayList<>();
 
@@ -37,7 +37,7 @@ public class setUpData implements Serializable{
 
         JFrame frame = new JFrame();
         JOptionPane.showMessageDialog(frame, "Patient Data Created");
-
+        */
         /*
         //Doctor Data
         ArrayList<doctor> doctors = new ArrayList<>();
@@ -91,6 +91,7 @@ public class setUpData implements Serializable{
         JOptionPane.showMessageDialog(frame, "Administrator Data Created");
         */
 
+        /*
         //Appointment data
         ArrayList<appointment> appointments = new ArrayList<>();
 
@@ -147,6 +148,7 @@ public class setUpData implements Serializable{
 
         //JFrame frame = new JFrame();
         JOptionPane.showMessageDialog(frame, "Appointment Data Created");
+         */
     }
 }
 
