@@ -10,8 +10,15 @@ import javax.swing.*;
 import java.io.Serializable;
 import java.util.ArrayList;
 
+/**
+ * A controller to hold all functions relating to the administrator aspect of the system.
+ */
 public class administratorController {
 
+    /**
+     * a function to display all registered doctor accounts to the administrator
+     * @param doctors - jlist
+     */
     public static void displayDoctors(JList doctors){
         //create list and model
         DefaultListModel doctorModel = new DefaultListModel();
@@ -31,6 +38,11 @@ public class administratorController {
         doctors.setModel(doctorModel);
     }
 
+    /**
+     * A function to delete a registered doctor account.
+     * @param doctorID - doctor ID to be deleted.
+     * @param gui - gui.
+     */
     public static void deleteDoctor(String doctorID, gui gui){
         JFrame frame = new JFrame();
 
@@ -62,6 +74,18 @@ public class administratorController {
         JOptionPane.showMessageDialog(frame, message);
     }
 
+    /**
+     * A function that takes input from the action listener (doctors details) and registers them with an account.
+     * @param gui
+     * @param password
+     * @param firstName
+     * @param surname
+     * @param address
+     * @param city
+     * @param county
+     * @param postcode
+     * @return - return "complete" so action listener can clear text inputs.
+     */
     public static Serializable registerDoctor(gui gui, char[] password, String firstName, String surname,
                                               String address, String city, String county, String postcode){
         //get array list
@@ -82,6 +106,11 @@ public class administratorController {
         return complete;
     }
 
+    /**
+     * A function to create a unique doctor ID.
+     * @param doctors - arraylist of all registered doctors.
+     * @return
+     */
     public static String createDoctorID(ArrayList<doctor> doctors){
         doctor lastDoctor = doctors.get(doctors.size()-1);
         String lastID = lastDoctor.getUserID();
