@@ -7,11 +7,14 @@ import view.gui;
 import javax.swing.*;
 import java.util.ArrayList;
 
+/**
+ * A controller to hold all functions relating to the secretary aspect of the system.
+ */
 public class secretaryController {
 
-    /*
-    This function is used to display all patients to a secretary.
-    A JList is used to display all patients.
+    /**
+     * Display all patients to a secretary in a jlist.
+     * @param users - jlist form component.
      */
     public static void displayPatients(JList users){
         //create list and model
@@ -33,6 +36,11 @@ public class secretaryController {
         users.setModel(patients);
     }
 
+    /**
+     * Retrieve selected patient details and display them in appropriate text fields.
+     * @param userID - selected patient ID.
+     * @param gui - gui
+     */
     public static void getPatientDetails(String userID, gui gui){
         ArrayList<patient> patientList = new ArrayList();
         patientList = (ArrayList<patient>) Serialiser.readPatientData(patientList);
@@ -51,6 +59,13 @@ public class secretaryController {
         }
     }
 
+    /**
+     * When a secretary updates a patients details, the new text inputs are retrieved and used to update the
+     * selected patient.
+     * @param userID - selected patient ID.
+     * @param gui - gui
+     * @param users - JList component to get selected user.
+     */
     public static void updatePatientDetails(String userID, gui gui, JList users){
         JTextField input;
         String newInput;
@@ -87,6 +102,11 @@ public class secretaryController {
 
     }
 
+    /**
+     * A function to authorise a selected patient.
+     * @param userID - get patient ID
+     * @param gui - gui
+     */
     public static void authorisePatient(String userID, gui gui){
         JFrame frame = new JFrame();
         //get patient data
@@ -120,6 +140,11 @@ public class secretaryController {
         getPatientDetails(userID, gui);
     }
 
+    /**
+     * Delete a selected patient.
+     * @param userID - selected patient
+     * @param gui - gui
+     */
     public static void deletePatient(String userID, gui gui){
         JFrame frame = new JFrame();
         //get patient data
