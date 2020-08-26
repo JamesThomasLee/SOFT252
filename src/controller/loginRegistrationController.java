@@ -274,6 +274,7 @@ public class loginRegistrationController {
         gui.getTabs().removeAll();
         gui.getTabs().add(gui.getDoctorAccManage());
         gui.getTabs().setTitleAt(0, "Doctor Account Management");
+        administratorController.displayDoctors(gui.getDoctorAccounts());
         gui.getTabs().add(gui.getlogOutPanel());
         gui.getTabs().setTitleAt(1, "Log Out");
     }
