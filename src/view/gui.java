@@ -8,10 +8,7 @@ import java.awt.event.ActionListener;
 import java.util.Arrays;
 
 import Serialisation.setUpData;
-import controller.loginRegistrationController;
-import controller.secretaryController;
-import controller.logoutController;
-import controller.doctorController;
+import controller.*;
 import users.patient;
 
 public class gui {
@@ -69,6 +66,11 @@ public class gui {
     private JTextField ptCity;
     private JTextField ptCounty;
     private JTextField ptPostcode;
+    private JComboBox patientAppointments;
+    private JTextField patientAppointmentTime;
+    private JTextField patientAppointmentDoctor;
+    private JTextField patientAppointmentNotes;
+    private JTextField patientID;
 
     public gui() {
         //add combo box items
@@ -157,6 +159,13 @@ public class gui {
             public void actionPerformed(ActionEvent e) {
                 String userID = (String)patientCombo.getSelectedItem();
                 doctorController.updateAppointmentList(userID, appointmentsList, gui);
+            }
+        });
+        patientAppointments.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                int selection = patientAppointments.getSelectedIndex();
+                patientController.appointmentDetails(gui, selection);
             }
         });
         updatePatientButton.addActionListener(new ActionListener() {
@@ -421,7 +430,45 @@ public class gui {
         this.ptPostcode = ptPostcode;
     }
 
+    public JComboBox getPatientAppointments() {
+        return patientAppointments;
+    }
 
+    public void setPatientAppointments(JComboBox patientAppointments) {
+        this.patientAppointments = patientAppointments;
+    }
+
+    public JTextField getPatientAppointmentTime() {
+        return patientAppointmentTime;
+    }
+
+    public void setPatientAppointmentTime(JTextField patientAppointmentTime) {
+        this.patientAppointmentTime = patientAppointmentTime;
+    }
+
+    public JTextField getPatientAppointmentDoctor() {
+        return patientAppointmentDoctor;
+    }
+
+    public void setPatientAppointmentDoctor(JTextField patientAppointmentDoctor) {
+        this.patientAppointmentDoctor = patientAppointmentDoctor;
+    }
+
+    public JTextField getPatientAppointmentNotes() {
+        return patientAppointmentNotes;
+    }
+
+    public void setPatientAppointmentNotes(JTextField patientAppointmentNotes) {
+        this.patientAppointmentNotes = patientAppointmentNotes;
+    }
+
+    public JTextField getPatientID() {
+        return patientID;
+    }
+
+    public void setPatientID(JTextField patientID) {
+        this.patientID = patientID;
+    }
 }
 
 

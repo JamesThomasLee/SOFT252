@@ -153,7 +153,7 @@ public class loginRegistrationController {
                     if (Arrays.equals(Password, patient.getPassword())) {
                         String approved = patient.getApproved();
                         if(approved.equals("Yes")){
-                            patientLoggedIn(gui);
+                            patientLoggedIn(gui, userID);
                             login = "true";
                         }else{
                             login = "not approved";
@@ -227,12 +227,13 @@ public class loginRegistrationController {
      * When a patient successfully logs in, this function is used to display the relevant tabs on the gui.
      * @param gui - gui
      */
-    public static void patientLoggedIn(gui gui){
+    public static void patientLoggedIn(gui gui, String userID){
         gui.getTabs().removeAll();
         gui.getTabs().add(gui.getAppointmentsPanel());
         gui.getTabs().setTitleAt(0, "Appointments");
         gui.getTabs().add(gui.getMedicalhistoryPanel());
         gui.getTabs().setTitleAt(1, "Medical History and Prescriptions");
+        patientController.dropdown(gui, userID);
         gui.getTabs().add(gui.getDoctorsPanel());
         gui.getTabs().setTitleAt(2, "Doctors");
         gui.getTabs().add(gui.getlogOutPanel());
