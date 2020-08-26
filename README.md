@@ -34,6 +34,8 @@ By selecting a patient, the secretary can then view more patient details in thei
 panel on the right of the page. This control panel can also be used to update patient
 details, authorise patients, or delete patients.
 ![](applicationScreenshots/secretaryPatientView.PNG)
+* An administrator can view all doctor accounts, add new doctor accounts and delete existing doctor accounts.
+![](applicationScreenshots/doctors.PNG)
 
 
 #### JUnit testing and Javadoc:
