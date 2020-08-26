@@ -229,15 +229,13 @@ public class loginRegistrationController {
      */
     public static void patientLoggedIn(gui gui, String userID){
         gui.getTabs().removeAll();
-        gui.getTabs().add(gui.getAppointmentsPanel());
-        gui.getTabs().setTitleAt(0, "Appointments");
         gui.getTabs().add(gui.getMedicalhistoryPanel());
-        gui.getTabs().setTitleAt(1, "Medical History and Prescriptions");
+        gui.getTabs().setTitleAt(0, "Medical History and Prescriptions");
         patientController.dropdown(gui, userID);
         gui.getTabs().add(gui.getDoctorsPanel());
-        gui.getTabs().setTitleAt(2, "Doctors");
+        gui.getTabs().setTitleAt(1, "Doctors");
         gui.getTabs().add(gui.getlogOutPanel());
-        gui.getTabs().setTitleAt(3, "Log Out");
+        gui.getTabs().setTitleAt(2, "Log Out");
     }
 
     /**

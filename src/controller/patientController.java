@@ -1,7 +1,7 @@
 package controller;
 
 import Serialisation.Serialiser;
-import users.patient;
+import users.doctor;
 import systemClasses.appointment;
 import view.gui;
 
@@ -38,6 +38,11 @@ public class patientController {
         }
     }
 
+    /**
+     * Gets the selected index from the drop down box and populates the form fields with appointment data.
+     * @param gui - gui
+     * @param index - dropdown selected index
+     */
     public static void appointmentDetails(gui gui, int index) {
         //get appointment details
         ArrayList<appointment> appointmentList = new ArrayList();
@@ -52,12 +57,35 @@ public class patientController {
                 for (char c : appointment.getDate()) {
                     dateCompare = dateCompare + c;
                 }
+                String time = "";
+                for(char c:appointment.getTime()){
+                    time = time + c;
+                };
                 if(date.equals(dateCompare)){
-                    gui.getPatientAppointmentTime().setText("");
-                    gui.getPatientAppointmentDoctor().setText(appointment.getDoctorID());
+                    gui.getPatientAppointmentTime().setText(time);
+                    String doctor = getDoctor(appointment.getDoctorID());
+                    gui.getPatientAppointmentDoctor().setText(doctor);
                     gui.getPatientAppointmentNotes().setText(appointment.getNotes());
                 }
             }
         }
+    }
+
+    /**
+     * A function used to return a doctors name from their ID.
+     * @param doctorID - doctor ID returned from appointment.
+     * @return
+     */
+    public static String getDoctor(String doctorID){
+        ArrayList<doctor> doctorList = new ArrayList();
+        doctorList = (ArrayList<doctor>) Serialiser.readDoctorData(doctorList);
+
+        String doctorName = "";
+        for (doctor doctor:doctorList) {
+            if (doctorID.equals(doctor.getUserID())) {
+                doctorName = "Dr " + doctor.getFirstName() + " " + doctor.getSurname();
+            }
+        }
+        return doctorName;
     }
 }
