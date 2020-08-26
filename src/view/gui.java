@@ -83,6 +83,8 @@ public class gui {
     private JButton btnAddDoc;
     private JButton btnDeleteDoc;
     private JTextField txtDeleteDoctor;
+    private JPasswordField txtDocPass;
+    private JPasswordField txtDocConfPass;
 
     public gui() {
         //add combo box items
@@ -196,6 +198,35 @@ public class gui {
             @Override
             public void actionPerformed(ActionEvent e) {
                 administratorController.deleteDoctor(gui.txtDeleteDoctor.getText(), gui);
+            }
+        });
+        btnAddDoc.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                //check passwords match
+                if(Arrays.equals(txtDocPass.getPassword(), txtDocConfPass.getPassword())){
+                    String forename = txtDocFirst.getText();
+                    String surname = txtDocSur.getText();
+                    String address = txtDocAdd.getText();
+                    String city = txtDocCity.getText();
+                    String county = txtDocCounty.getText();
+                    String postcode = txtDocPost.getText();
+                    char[] password = txtDocPass.getPassword();
+                    String complete = (String) administratorController.registerDoctor(gui, password, forename, surname, address, city, county, postcode);
+                    if(complete.equals("complete")){
+                        txtDocFirst.setText("");
+                        txtDocSur.setText("");
+                        txtDocAdd.setText("");
+                        txtDocCity.setText("");
+                        txtDocCounty.setText("");
+                        txtDocPost.setText("");
+                        txtDocPass.setText("");
+                        txtDocConfPass.setText("");
+                    }
+                }else{
+                    JFrame frame = new JFrame();
+                    JOptionPane.showMessageDialog(frame, "Please ensure passwords match.");
+                }
             }
         });
     }
@@ -582,6 +613,22 @@ public class gui {
 
     public void setTxtDeleteDoctor(JTextField txtDeleteDoctor) {
         this.txtDeleteDoctor = txtDeleteDoctor;
+    }
+
+    public JPasswordField getTxtDocPass() {
+        return txtDocPass;
+    }
+
+    public void setTxtDocPass(JPasswordField txtDocPass) {
+        this.txtDocPass = txtDocPass;
+    }
+
+    public JPasswordField getTxtDocConfPass() {
+        return txtDocConfPass;
+    }
+
+    public void setTxtDocConfPass(JPasswordField txtDocConfPass) {
+        this.txtDocConfPass = txtDocConfPass;
     }
 }
 

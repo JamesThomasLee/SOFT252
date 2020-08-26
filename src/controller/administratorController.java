@@ -1,11 +1,13 @@
 package controller;
 
 import Serialisation.Serialiser;
+import users.administrator;
 import users.doctor;
 import users.patient;
 import view.gui;
 
 import javax.swing.*;
+import java.io.Serializable;
 import java.util.ArrayList;
 
 public class administratorController {
@@ -58,5 +60,37 @@ public class administratorController {
             }
         }
         JOptionPane.showMessageDialog(frame, message);
+    }
+
+    public static Serializable registerDoctor(gui gui, char[] password, String firstName, String surname,
+                                              String address, String city, String county, String postcode){
+        //get array list
+        ArrayList<doctor> doctorList = new ArrayList();
+        doctorList = (ArrayList<doctor>) Serialiser.readDoctorData(doctorList);
+
+        //generate new user ID
+        String doctorID = createDoctorID(doctorList);
+
+        //create new user
+        doctor d = new doctor(doctorID, password, firstName, surname, address, city, county, postcode);
+        //add to array list
+        doctorList.add(d);
+        //reserialize
+        Serialiser.writeObject(doctorList, "doctorData");
+
+        String complete = "complete";
+        return complete;
+    }
+
+    public static String createDoctorID(ArrayList<doctor> doctors){
+        doctor lastDoctor = doctors.get(doctors.size()-1);
+        String lastID = lastDoctor.getUserID();
+        char firstDigit = lastID.charAt(1);
+        char secondDigit = lastID.charAt(2);
+        char thirdDigit = lastID.charAt(3);
+        int newThirdDigit = Character.getNumericValue(thirdDigit) + '1';
+        thirdDigit = (char)newThirdDigit;
+        String newID =  "A" + firstDigit + secondDigit + thirdDigit;
+        return newID;
     }
 }
