@@ -12,7 +12,7 @@ All data is created in the setUpData class and currently commented out.
 The data is serialized and stored in its appropriate .ser file.
 This is due to an ongoing error when storing all serialized array lists as one data object.
 
-####System features currently in operation:
+#### System features currently in operation:
 * User log in - a user is successfully able to log in to their account.
 ![](applicationScreenshots/signIn.PNG)
 * User registration - a user is successfully able to register for a new account.
@@ -35,4 +35,8 @@ panel on the right of the page. This control panel can also be used to update pa
 details, authorise patients, or delete patients.
 ![](applicationScreenshots/secretaryPatientView.PNG)
 
+
+#### JUnit testing and Javadoc:
+* Appropriate class testing has been implemented using JUnit and all tests have passed.
+* Javadoc comments have been implemented on all controllers to provide function documentation.
  
