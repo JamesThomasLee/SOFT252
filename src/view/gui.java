@@ -82,6 +82,7 @@ public class gui {
     private JTextField txtDocPost;
     private JButton btnAddDoc;
     private JButton btnDeleteDoc;
+    private JTextField txtDeleteDoctor;
 
     public gui() {
         //add combo box items
@@ -189,6 +190,12 @@ public class gui {
                     patient = patient + String.valueOf(ch);
                 }
                 secretaryController.updatePatientDetails(patient, gui, gui.getSecAccManagement());
+            }
+        });
+        btnDeleteDoc.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                administratorController.deleteDoctor(gui.txtDeleteDoctor.getText(), gui);
             }
         });
     }
@@ -567,6 +574,14 @@ public class gui {
 
     public void setBtnDeleteDoc(JButton btnDeleteDoc) {
         this.btnDeleteDoc = btnDeleteDoc;
+    }
+
+    public JTextField getTxtDeleteDoctor() {
+        return txtDeleteDoctor;
+    }
+
+    public void setTxtDeleteDoctor(JTextField txtDeleteDoctor) {
+        this.txtDeleteDoctor = txtDeleteDoctor;
     }
 }
 
