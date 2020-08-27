@@ -8,6 +8,13 @@ This is a patient management system preloaded with the following data:
 * 1 Secretary
 * 1 Administrator
 
+##### Login Credentials
+* Patient credentials - Usernames: 'P001', 'P002', 'P003'. Password for all accounts is 'Patient'.
+* Doctor credentials - Usernames: 'D001', 'D002', 'D003', 'D004'. Password for all accounts is 'Doctor'.
+* Secretary credentials - Username: 'S001' Password: 'Secretary'
+*Administrator credentials - Username: 'A001' Password: 'Administrator'
+
+##### Data Storage
 All data is created in the setUpData class and currently commented out. 
 The data is serialized and stored in its appropriate .ser file.
 This is due to an ongoing error when storing all serialized array lists as one data object.
